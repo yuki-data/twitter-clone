@@ -44,3 +44,6 @@ doc/
 .rubocop.yml
 # eslint設定を無視
 .eslintrc.json
+
+# 投稿した画像を無視
+public/uploads/*
