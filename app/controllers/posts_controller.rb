@@ -2,7 +2,7 @@ class PostsController < ApplicationController
   before_action :set_new_post, only: [:new, :create]
 
   def index
-    @posts = Post.all.includes(:user)
+    @posts = Post.all.includes(:user).order(created_at: :desc)
   end
 
   def new
