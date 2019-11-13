@@ -2,6 +2,7 @@ class PostsController < ApplicationController
   before_action :set_new_post, only: [:new, :create]
 
   def index
+    @posts = Post.all.includes(:user)
   end
 
   def new
