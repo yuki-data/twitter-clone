@@ -1,0 +1,17 @@
+<%= render "navbar" %>
+
+<div class="post-form">
+  <%= form_with model: @post, class: "post-form__form" do |form| %>
+    <div class="post-form__form__menu">
+      <%= form.submit "投稿", class: "post-form__form__menu__submit btn btn-primary" %>
+      <div class="post-form__form__menu__cancel btn btn-outline-primary">削除</div>
+    </div>
+    <div class="post-form__form__content">
+      <%= form.text_area :content, rows: 3, class: "form-control post-form__form__content__text", placeholder: "メッセージ" %>
+      <%= form.label :image, class: "post-form__form__content__image" do%>
+        <%= icon("fas", "photo-video") %>
+        <%= form.file_field :image, class: "post-form__form__content__image__field" %>
+      <% end %>
+    </div>
+  <% end %>
+</div>
