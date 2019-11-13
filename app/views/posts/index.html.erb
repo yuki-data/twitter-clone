@@ -1,3 +1,5 @@
 <%= render "navbar" %>
-<%= render partial: "shared/post_card", collection: @posts, as: :post %>
+<div class="posts">
+  <%= render partial: "shared/post_card", collection: @posts, as: :post %>
+</div>
 
