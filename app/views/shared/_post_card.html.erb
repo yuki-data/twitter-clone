@@ -1,4 +1,14 @@
 <div class="posts__card card mx-auto">
+  <div class="posts__card__header card-header">
+    <ul class="posts__card__header__info">
+      <li class="posts__card__header__info__username">
+        <%= post.user.name %>
+      </li>
+      <li class="posts__card__header__info__date">
+        <%= post.updated_at %>
+      </li>
+    </ul>
+  </div>
   <img src="" class="card-img-top" alt="">
   <div class="card-body">
     <div class="card-text">

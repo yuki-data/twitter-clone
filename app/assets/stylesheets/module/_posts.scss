@@ -3,5 +3,14 @@
   &__card {
     max-width: 32rem;
     margin-bottom: 0.5rem;
+    &__header {
+      ul {
+        margin: 0;
+      }
+      &__info {
+        display: flex;
+        justify-content: space-between;
+      }
+    }
   }
 }
