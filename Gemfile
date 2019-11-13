@@ -67,6 +67,7 @@ gem 'jquery-rails'
 
 gem 'devise'
 gem 'font-awesome-sass'
+gem 'carrierwave'
 
 group :development, :test do
   # 以下はvscodeの拡張用
