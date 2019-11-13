@@ -2,7 +2,7 @@
   <div class="posts__card__header card-header">
     <ul class="posts__card__header__info">
       <li class="posts__card__header__info__username">
-        <%= post.user.name %>
+        <%= link_to post.user.name, user_path(post.user.id) %>
       </li>
       <li class="posts__card__header__info__date">
         <%= post.updated_at %>

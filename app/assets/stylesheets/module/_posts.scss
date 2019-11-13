@@ -10,6 +10,11 @@
       &__info {
         display: flex;
         justify-content: space-between;
+        color: grey;
+        a {
+          text-decoration: none;
+          color: grey;
+        }
       }
     }
   }
