@@ -14,11 +14,13 @@
       <%= image_tag post.image.url, alt: post.image.identifier %>
     </div>
   <% end  %>
-  <div class="card-body">
-    <div class="card-text">
-      <%= simple_format(h(post.content)) %>
+  <% unless post.content.empty? %>
+    <div class="card-body">
+      <div class="card-text">
+        <%= simple_format(h(post.content)) %>
+      </div>
     </div>
-  </div>
+  <% end %>
   <div class="card-body">
     <a href="#" class="card-link">Card link</a>
     <a href="#" class="card-link">Another link</a>
