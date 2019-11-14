@@ -2,7 +2,7 @@
   <%= form_with model: @post, class: "post-form__form" do |form| %>
     <div class="post-form__form__menu">
       <%= form.submit submit_btn , class: "post-form__form__menu__submit btn btn-primary" %>
-      <div class="post-form__form__menu__cancel btn btn-outline-primary">破棄</div>
+      <%= link_to "破棄", user_path(current_user.id) , class: "post-form__form__menu__cancel btn btn-outline-primary" %>
     </div>
     <div class="post-form__form__content">
       <%= form.text_area :content, rows: 3, class: "form-control post-form__form__content__text", placeholder: "メッセージ" %>
