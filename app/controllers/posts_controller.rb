@@ -1,5 +1,6 @@
 class PostsController < ApplicationController
   before_action :set_new_post, only: [:new, :create]
+  before_action :set_post, only: [:edit, :update]
 
   def index
     @posts = Post.all.includes(:user).order(created_at: :desc)
@@ -21,6 +22,12 @@ class PostsController < ApplicationController
   end
 
   def update
+    @post.update(post_params)
+    if @post.errors.empty?
+      redirect_to user_path(current_user.id)
+    else
+      render :edit
+    end
   end
 
   def destroy
@@ -32,6 +39,10 @@ class PostsController < ApplicationController
 
   def set_new_post
     @post = Post.new
+  end
+
+  def set_post
+    @post = Post.find(params[:id])
   end
 
   def post_params
