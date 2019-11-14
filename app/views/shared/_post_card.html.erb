@@ -8,11 +8,11 @@
         <%= post.updated_at %>
       </li>
 
-      <li class="dropdown">
-        <button class="btn btn-info dropdown-toggle" type="button" id="dropdownMenuButton" data-toggle="dropdown">
+      <li class="posts__card__header__info__dropdown dropdown">
+        <button class="btn btn-outline-info dropdown-toggle" type="button" id="dropdownMenuButton" data-toggle="dropdown">
           <%= icon("fas", "cog") %>
         </button>
-        <ul class="dropdown-menu">
+        <ul class="posts__card__header__info__dropdown__menu dropdown-menu">
           <li class="dropdown-item"> <%= link_to "削除", "#" %> </li>
           <li class="dropdown-item"> <%= link_to "編集", "#" %> </li>
         </ul>
