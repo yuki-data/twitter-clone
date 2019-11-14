@@ -7,6 +7,17 @@
       <li class="posts__card__header__info__date">
         <%= post.updated_at %>
       </li>
+
+      <li class="dropdown">
+        <button class="btn btn-info dropdown-toggle" type="button" id="dropdownMenuButton" data-toggle="dropdown">
+          <%= icon("fas", "cog") %>
+        </button>
+        <ul class="dropdown-menu">
+          <li class="dropdown-item"> <%= link_to "削除", "#" %> </li>
+          <li class="dropdown-item"> <%= link_to "編集", "#" %> </li>
+        </ul>
+      </li>
+
     </ul>
   </div>
   <% if post.image.identifier %>
