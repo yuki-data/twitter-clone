@@ -13,7 +13,7 @@
           <%= icon("fas", "cog") %>
         </button>
         <ul class="posts__card__header__info__dropdown__menu dropdown-menu">
-          <li class="dropdown-item"> <%= link_to "削除", "#" %> </li>
+          <li class="dropdown-item"> <%= link_to "削除", post_path(post.id), method: :delete %> </li>
           <li class="dropdown-item"> <%= link_to "編集", "#" %> </li>
         </ul>
       </li>
