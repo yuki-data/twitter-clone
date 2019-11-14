@@ -1,0 +1,28 @@
+<div class="posts__card card mx-auto">
+  <div class="posts__card__header card-header">
+    <ul class="posts__card__header__info">
+      <li class="posts__card__header__info__username">
+        <%= link_to post.user.name, user_path(post.user.id) %>
+      </li>
+      <li class="posts__card__header__info__date">
+        <%= post.updated_at %>
+      </li>
+    </ul>
+  </div>
+  <% if post.image.identifier %>
+    <div class="posts__card__image card-img-top">
+      <%= image_tag post.image.url, alt: post.image.identifier %>
+    </div>
+  <% end  %>
+  <% unless post.content.empty? %>
+    <div class="card-body">
+      <div class="card-text">
+        <%= simple_format(h(post.content)) %>
+      </div>
+    </div>
+  <% end %>
+  <div class="card-body">
+    <a href="#" class="card-link">Card link</a>
+    <a href="#" class="card-link">Another link</a>
+  </div>
+</div>

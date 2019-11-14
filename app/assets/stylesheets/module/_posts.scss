@@ -1,0 +1,21 @@
+.posts {
+  padding-top: 1rem;
+  &__card {
+    max-width: 32rem;
+    margin-bottom: 0.5rem;
+    &__header {
+      ul {
+        margin: 0;
+      }
+      &__info {
+        display: flex;
+        justify-content: space-between;
+        color: grey;
+        a {
+          text-decoration: none;
+          color: grey;
+        }
+      }
+    }
+  }
+}

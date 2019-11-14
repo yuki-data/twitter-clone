@@ -66,6 +66,9 @@ gem 'bootstrap', '~> 4.3.1'
 gem 'jquery-rails'
 
 gem 'devise'
+gem 'font-awesome-sass'
+gem 'carrierwave'
+gem 'mini_magick'
 
 group :development, :test do
   # 以下はvscodeの拡張用

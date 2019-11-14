@@ -1,0 +1,27 @@
+.post-form {
+  display: flex;
+  justify-content: center;
+  padding: 0.5rem 1rem 0;
+  &__form {
+    flex-basis: 32rem;
+    &__content {
+      &__image {
+        font-size: 1.8rem;
+        margin: 0.5rem;
+        &__field {
+          display: none;
+        }
+      }
+    }
+    &__menu {
+      display: flex;
+      justify-content: flex-end;
+      &__submit {
+        margin: 0.5rem;
+      }
+      &__cancel {
+        margin: 0.5rem;
+      }
+    }
+  }
+}
