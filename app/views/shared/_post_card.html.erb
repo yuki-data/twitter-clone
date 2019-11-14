@@ -14,7 +14,7 @@
         </button>
         <ul class="posts__card__header__info__dropdown__menu dropdown-menu">
           <li class="dropdown-item">
-            <%= link_to "削除", post, method: :delete, title: "投稿を削除", data: { confirm: '削除してもよろしいですか?', commit: '削除', cancel: '中止' } %>
+            <%= link_to "削除", post, method: :delete, remote: true, title: "投稿を削除", data: { confirm: '削除してもよろしいですか?', commit: '削除', cancel: '中止' } %>
           </li>
           <li class="dropdown-item"> <%= link_to "編集", "#" %> </li>
         </ul>
