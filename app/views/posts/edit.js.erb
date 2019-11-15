@@ -1,2 +1,2 @@
-$("#modal-post").html("<%= escape_javascript(render 'modal_post_new') %>")
+$("#modal-post").html("<%= escape_javascript(render partial: 'modal_post_form', locals: { title: "投稿を編集", button: "更新" } ) %>")
 $("#modal-post").modal("show")
