@@ -14,18 +14,18 @@ class PostsController < ApplicationController
   end
 
   def create
-    post = Post.create(post_params)
+    @post_latest = Post.create(post_params)
     respond_to do |format|
-      format.html do
-        if post.errors.empty?
-          redirect_to user_path(current_user.id), notice: "メッセージを投稿しました"
-        else
+      if @post_latest.errors.empty?
+        format.html { redirect_to user_path(current_user.id), notice: "メッセージを投稿しました" }
+        format.js { @status = "success"}
+      else
+        format.html do
           flash.now[:alert] = "メッセージが入力されていません"
           render :new
         end
+        format.js { @status = "fail" }
       end
-      format.json
-      format.js
     end
   end
 
