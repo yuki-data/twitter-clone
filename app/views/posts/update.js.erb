@@ -1,0 +1,7 @@
+<% if @status == 'success' %>
+var current_post = $(".posts__card[data-post-id='<%= @post.id %>']");
+current_post.replaceWith("<%= j(render("shared/post_card", post: @post)) %>")
+<%  elsif @status == 'fail' %>
+alert('メッセージの投稿に失敗しました。メッセージを入力してください。');
+<% end %>
+$("#modal-post").modal("hide");
