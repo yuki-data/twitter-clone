@@ -1,7 +1,7 @@
 <div class="modal-dialog" role="document">
   <div class="modal-content">
     <div class="modal-header">
-      <h5 class="modal-title">新規投稿</h5>
+      <h5 class="modal-title"><%= title %></h5>
       <button type="button" class="close" data-dismiss="modal" aria-label="Close">
         <span aria-hidden="true">&times;</span>
       </button>
@@ -10,7 +10,7 @@
       <div class="post-form">
         <%= form_with model: @post, class: "post-form__form" do |form| %>
           <div class="post-form__form__menu">
-            <%= form.submit "投稿" , class: "post-form__form__menu__submit btn btn-primary" %>
+            <%= form.submit button, class: "post-form__form__menu__submit btn btn-primary" %>
             <button type="button" class="post-form__form__menu__cancel btn btn-outline-primary" data-dismiss="modal">破棄</button>
           </div>
           <div class="post-form__form__content">
