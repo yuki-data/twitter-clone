@@ -1,0 +1,6 @@
+<% if @status == 'success' %>
+$(".posts").prepend("<%= j(render("shared/post_card", post: @post_latest)) %>");
+<%  elsif @status == 'fail' %>
+alert('メッセージの投稿に失敗しました');
+<% end %>
+$("#modal-post").modal("hide");
