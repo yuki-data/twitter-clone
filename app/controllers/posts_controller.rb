@@ -38,11 +38,18 @@ class PostsController < ApplicationController
 
   def update
     @post.update(post_params)
-    if @post.errors.empty?
-      redirect_to user_path(current_user.id), notice: "メッセージを更新しました"
-    else
-      flash.now[:alert] = "メッセージが入力されていません"
-      render :edit
+
+    respond_to do |format|
+      if @post.errors.empty?
+        format.html {redirect_to user_path(current_user.id), notice: "メッセージを更新しました"}
+        format.js { @status = "success"}
+      else
+        format.html do
+          flash.now[:alert] = "メッセージが入力されていません"
+          render :new
+        end
+        format.js { @status = "fail" }
+      end
     end
   end
 
