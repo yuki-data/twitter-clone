@@ -15,10 +15,17 @@ class PostsController < ApplicationController
 
   def create
     post = Post.create(post_params)
-    if post.errors.empty?
-      redirect_to user_path(current_user.id)
-    else
-      render :new
+    respond_to do |format|
+      format.html do
+        if post.errors.empty?
+          redirect_to user_path(current_user.id), notice: "メッセージを投稿しました"
+        else
+          flash.now[:alert] = "メッセージが入力されていません"
+          render :new
+        end
+      end
+      format.json
+      format.js
     end
   end
 
