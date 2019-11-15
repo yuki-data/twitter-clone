@@ -54,8 +54,17 @@ class PostsController < ApplicationController
   end
 
   def destroy
-    Post.destroy(params[:id])
-    redirect_back(fallback_location: root_path)
+    @post_destroyed = Post.destroy(params[:id])
+    respond_to do |format|
+      format.html { redirect_back(fallback_location: root_path) }
+      format.js do
+        if @post_destroyed.destroyed?
+          @status = "success"
+        else
+          @status = "fail"
+        end
+      end
+    end
   end
 
   private
