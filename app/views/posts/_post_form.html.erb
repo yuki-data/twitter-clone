@@ -1,5 +1,5 @@
 <div class="post-form">
-  <%= form_with model: @post, class: "post-form__form" do |form| %>
+  <%= form_with model: @post, local: true, class: "post-form__form" do |form| %>
     <div class="post-form__form__menu">
       <%= form.submit submit_btn , class: "post-form__form__menu__submit btn btn-primary" %>
       <%= link_to "破棄", user_path(current_user.id) , class: "post-form__form__menu__cancel btn btn-outline-primary" %>
