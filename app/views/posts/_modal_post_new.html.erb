@@ -1,17 +1,27 @@
 <div class="modal-dialog" role="document">
   <div class="modal-content">
     <div class="modal-header">
-      <h5 class="modal-title">Modal title</h5>
+      <h5 class="modal-title">新規投稿</h5>
       <button type="button" class="close" data-dismiss="modal" aria-label="Close">
         <span aria-hidden="true">&times;</span>
       </button>
     </div>
     <div class="modal-body">
-      <p>Modal body text goes here.</p>
-    </div>
-    <div class="modal-footer">
-      <button type="button" class="btn btn-primary">Save changes</button>
-      <button type="button" class="btn btn-secondary" data-dismiss="modal">Close</button>
+      <div class="post-form">
+        <%= form_with model: @post, class: "post-form__form" do |form| %>
+          <div class="post-form__form__menu">
+            <%= form.submit "投稿" , class: "post-form__form__menu__submit btn btn-primary" %>
+            <button type="button" class="post-form__form__menu__cancel btn btn-outline-primary" data-dismiss="modal">破棄</button>
+          </div>
+          <div class="post-form__form__content">
+            <%= form.text_area :content, rows: 3, class: "form-control post-form__form__content__text", placeholder: "メッセージ" %>
+            <%= form.label :image, class: "post-form__form__content__image" do%>
+              <%= icon("fas", "image") %>
+              <%= form.file_field :image, class: "post-form__form__content__image__field" %>
+            <% end %>
+          </div>
+        <% end %>
+      </div>
     </div>
   </div>
 </div>
