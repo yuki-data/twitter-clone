@@ -35,8 +35,9 @@ class PostsController < ApplicationController
   def update
     @post.update(post_params)
     if @post.errors.empty?
-      redirect_to user_path(current_user.id)
+      redirect_to user_path(current_user.id), notice: "メッセージを更新しました"
     else
+      flash.now[:alert] = "メッセージが入力されていません"
       render :edit
     end
   end
