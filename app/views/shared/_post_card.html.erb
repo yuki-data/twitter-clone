@@ -5,7 +5,7 @@
         <%= link_to post.user.name, user_path(post.user.id) %>
       </li>
       <li class="posts__card__header__info__date">
-        <%= post.updated_at %>
+        <%= post.updated_at.strftime("%Y/%m/%d(%a) %H:%M") %>
       </li>
       <% if user_signed_in? && current_user.id == post.user.id %>
         <li class="posts__card__header__info__dropdown dropdown">
