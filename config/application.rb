@@ -9,6 +9,7 @@ Bundler.require(*Rails.groups)
 module TwitterClone
   class Application < Rails::Application
     config.autoload_paths += Dir[Rails.root.join('app', 'uploaders')]
+    config.time_zone = 'Asia/Tokyo'
     # Initialize configuration defaults for originally generated Rails version.
     config.load_defaults 5.2
 

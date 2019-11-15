@@ -1,12 +1,25 @@
-<div class="posts__card card mx-auto">
+<div class="posts__card card mx-auto" data-post-id="<%= post.id %>">
   <div class="posts__card__header card-header">
     <ul class="posts__card__header__info">
       <li class="posts__card__header__info__username">
         <%= link_to post.user.name, user_path(post.user.id) %>
       </li>
       <li class="posts__card__header__info__date">
-        <%= post.updated_at %>
+        <%= post.updated_at.strftime("%Y/%m/%d(%a) %H:%M") %>
       </li>
+      <% if user_signed_in? && current_user.id == post.user.id %>
+        <li class="posts__card__header__info__dropdown dropdown">
+          <button class="posts__card__header__info__dropdown__btn btn btn-outline-info dropdown-toggle" type="button" id="dropdownMenuButton" data-toggle="dropdown">
+            <%= icon("fas", "cog") %>
+          </button>
+          <ul class="posts__card__header__info__dropdown__menu dropdown-menu">
+            <li class="dropdown-item">
+              <%= link_to "削除", post, method: :delete, remote: true, title: "投稿を削除", data: { confirm: '削除してもよろしいですか?', commit: '削除', cancel: '中止' } %>
+            </li>
+            <li class="dropdown-item"> <%= link_to "編集", edit_post_path(post.id), remote: true %> </li>
+          </ul>
+        </li>
+      <% end %>
     </ul>
   </div>
   <% if post.image.identifier %>

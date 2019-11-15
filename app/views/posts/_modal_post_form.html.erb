@@ -1,0 +1,27 @@
+<div class="modal-dialog" role="document">
+  <div class="modal-content">
+    <div class="modal-header">
+      <h5 class="modal-title"><%= title %></h5>
+      <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+        <span aria-hidden="true">&times;</span>
+      </button>
+    </div>
+    <div class="modal-body">
+      <div class="post-form">
+        <%= form_with model: @post, class: "post-form__form" do |form| %>
+          <div class="post-form__form__menu">
+            <%= form.submit button, class: "post-form__form__menu__submit btn btn-primary" %>
+            <button type="button" class="post-form__form__menu__cancel btn btn-outline-primary" data-dismiss="modal">破棄</button>
+          </div>
+          <div class="post-form__form__content">
+            <%= form.text_area :content, rows: 3, class: "form-control post-form__form__content__text", placeholder: "メッセージ" %>
+            <%= form.label :image, class: "post-form__form__content__image" do%>
+              <%= icon("fas", "image") %>
+              <%= form.file_field :image, class: "post-form__form__content__image__field" %>
+            <% end %>
+          </div>
+        <% end %>
+      </div>
+    </div>
+  </div>
+</div>

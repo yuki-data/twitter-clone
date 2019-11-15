@@ -8,6 +8,9 @@
       &__image {
         font-size: 1.8rem;
         margin: 0.5rem;
+        &:hover {
+          cursor: pointer;
+        }
         &__field {
           display: none;
         }

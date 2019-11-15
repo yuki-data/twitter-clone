@@ -1,0 +1,3 @@
+<% if @status == 'success' %>
+$(".posts__card[data-post-id='<%= @post_destroyed.id %>']").remove();
+<% end %>

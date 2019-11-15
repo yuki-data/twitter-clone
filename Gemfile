@@ -69,6 +69,8 @@ gem 'devise'
 gem 'font-awesome-sass'
 gem 'carrierwave'
 gem 'mini_magick'
+# 削除確認ダイアログをmodal表示
+gem 'data-confirm-modal'
 
 group :development, :test do
   # 以下はvscodeの拡張用
