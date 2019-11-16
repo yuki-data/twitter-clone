@@ -35,6 +35,6 @@
     </div>
   <% end %>
   <div class="posts__card__bottom card-body">
-    <%= link_to icon("far", "heart"), "#", class: "posts__card__bottom__bookmark" %>
+    <%= link_to icon("far", "heart"), post_bookmarks_path(post.id), method: :create, class: "posts__card__bottom__bookmark" %>
   </div>
 </div>
