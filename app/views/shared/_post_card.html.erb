@@ -35,6 +35,14 @@
     </div>
   <% end %>
   <div class="posts__card__bottom card-body">
-    <%= link_to icon("far", "heart"), post_bookmarks_path(post.id), method: :create, class: "posts__card__bottom__bookmark" %>
+    <% if user_signed_in? %>
+      <% if post.is_bookmarked(current_user.id) %>
+        <%= link_to icon("fas", "heart"), post_bookmark_path(post.id, post.bookmarks.find_by(user_id: current_user.id).id), method: :delete, class: "posts__card__bottom__bookmark" %>
+      <% else %>
+        <%= link_to icon("far", "heart"), post_bookmarks_path(post.id), method: :create, class: "posts__card__bottom__bookmark" %>
+      <% end %>
+    <% else %>
+      <%= link_to link_to icon("far", "heart"), new_user_session_path %>
+    <% end %>
   </div>
 </div>
