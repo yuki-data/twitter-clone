@@ -42,7 +42,7 @@
         <%= link_to icon("far", "heart"), post_bookmarks_path(post.id), method: :create, class: "posts__card__bottom__bookmark" %>
       <% end %>
     <% else %>
-      <%= link_to link_to icon("far", "heart"), new_user_session_path %>
+      <%= link_to link_to icon("far", "heart"), new_user_session_path, class: "posts__card__bottom__bookmark" %>
     <% end %>
   </div>
 </div>
