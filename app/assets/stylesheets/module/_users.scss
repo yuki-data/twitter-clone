@@ -12,11 +12,18 @@
       justify-content: space-between;
       align-items: center;
       &__user-name {
+        a {
+          text-decoration: none;
+          color: black;
+        }
       }
       &__menu {
         margin: 0;
         padding: 0;
         &__bookmark {
+          &--highlight {
+            border-bottom: 1px solid blue;
+          }
           a {
             color: grey;
             text-decoration: none;
