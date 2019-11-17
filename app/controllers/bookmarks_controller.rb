@@ -2,7 +2,8 @@ class BookmarksController < ApplicationController
   before_action :authenticate_user!
 
   def create
-    bookmark = Bookmark.create(post_id: params[:post_id], user_id: current_user.id)
+    return if Bookmark.find_by(bookmark_params)
+    bookmark = Bookmark.create(bookmark_params)
     if bookmark.errors.empty?
       flash[:notice] = "ブックマークしました"
     else
