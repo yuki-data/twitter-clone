@@ -13,7 +13,14 @@ class BookmarksController < ApplicationController
   end
 
   def destroy
-    current_user.bookmarks.find_by(post_id: params[:post_id]).destroy
-    redirect_back(fallback_location: root_path)
+    bookmark = current_user.bookmarks.find_by(post_id: params[:post_id])
+    if bookmark
+      bookmark.destroy
+      redirect_back(fallback_location: root_path)
+    end
+  end
+
+  def bookmark_params
+    params.permit(:post_id).merge(user_id: current_user.id)
   end
 end
