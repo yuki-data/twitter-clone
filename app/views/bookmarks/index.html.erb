@@ -1,0 +1,22 @@
+<div class="header">
+  <%= render "posts/navbar" %>
+  <%= render "posts/modal_post_container" %>
+  <div class="header__user-info">
+    <div class="header__user-info__inner">
+      <div class="header__user-info__inner__user-name">
+        <%= link_to @user.name, user_path(@user.id) %>
+      </div>
+      <ul class="header__user-info__inner__menu">
+        <li class="header__user-info__inner__menu__bookmark">
+          <%= link_to user_bookmarks_path(@user.id), class: "header__user-info__inner__menu__bookmark--highlight" do %>
+            いいね： <%= @user.bookmarks.count %>
+          <% end %>
+        </li>
+      </ul>
+    </div>
+  </div>
+</div>
+
+<div class="posts">
+  <%= render partial: "shared/post_card", collection: @posts, as: :post %>
+</div>
