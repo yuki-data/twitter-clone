@@ -71,6 +71,8 @@ gem 'carrierwave'
 gem 'mini_magick'
 # 削除確認ダイアログをmodal表示
 gem 'data-confirm-modal'
+# ブックマークの数を数える
+gem 'counter_culture'
 
 group :development, :test do
   # 以下はvscodeの拡張用
