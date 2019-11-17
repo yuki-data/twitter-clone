@@ -1,6 +1,11 @@
 class BookmarksController < ApplicationController
   before_action :authenticate_user!
 
+  def index
+    @user = User.find(params[:user_id])
+    @posts = @user.favposts.order(created_at: :desc)
+  end
+
   def create
     return if Bookmark.find_by(bookmark_params)
     bookmark = Bookmark.create(bookmark_params)
