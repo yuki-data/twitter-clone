@@ -35,5 +35,11 @@
       text-align: center;
       padding: 1rem;
     }
+    &__bottom {
+      display: flex;
+      &__bookmarks-count {
+        margin-left: 1rem;
+      }
+    }
   }
 }
