@@ -44,5 +44,6 @@
     <% else %>
       <%= link_to link_to icon("far", "heart"), new_user_session_path, class: "posts__card__bottom__bookmark" %>
     <% end %>
+    <div class="posts__card__bottom__bookmarks-count"><%= post.bookmarks_count %></div>
   </div>
 </div>
