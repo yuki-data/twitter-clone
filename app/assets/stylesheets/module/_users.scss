@@ -16,6 +16,12 @@
       &__menu {
         margin: 0;
         padding: 0;
+        &__bookmark {
+          a {
+            color: grey;
+            text-decoration: none;
+          }
+        }
       }
     }
   }

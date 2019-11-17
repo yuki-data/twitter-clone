@@ -5,7 +5,11 @@
     <div class="header__user-info__inner">
       <div class="header__user-info__inner__user-name"><%= @user.name %></div>
       <ul class="header__user-info__inner__menu">
-        <li class="header__user-info__inner__menu__bookmark">いいね： 10</li>
+        <li class="header__user-info__inner__menu__bookmark">
+          <%= link_to "#" do %>
+            いいね： <%= @user.bookmarks.count %>
+          <% end %>
+        </li>
       </ul>
     </div>
   </div>
