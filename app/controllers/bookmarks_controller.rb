@@ -1,4 +1,6 @@
 class BookmarksController < ApplicationController
+  before_action :authenticate_user!
+
   def create
     bookmark = Bookmark.create(post_id: params[:post_id], user_id: current_user.id)
     if bookmark.errors.empty?
