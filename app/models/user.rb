@@ -6,6 +6,6 @@ class User < ApplicationRecord
 
   validates :name, presence: true, uniqueness: true
   has_many :posts
-  has_many :bookmarks
+  has_many :bookmarks, dependent: :destroy
   has_many :favposts, through: :bookmarks, source: :post
 end
