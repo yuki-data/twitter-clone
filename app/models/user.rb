@@ -8,4 +8,5 @@ class User < ApplicationRecord
   has_many :posts
   has_many :bookmarks, dependent: :destroy
   has_many :favposts, through: :bookmarks, source: :post
+  has_many :relationships, dependent: :destroy
 end

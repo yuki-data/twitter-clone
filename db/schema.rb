@@ -10,7 +10,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 2019_11_17_092617) do
+ActiveRecord::Schema.define(version: 2019_11_18_015054) do
 
   create_table "bookmarks", options: "ENGINE=InnoDB DEFAULT CHARSET=utf8", force: :cascade do |t|
     t.bigint "user_id"
@@ -32,6 +32,16 @@ ActiveRecord::Schema.define(version: 2019_11_17_092617) do
     t.index ["user_id"], name: "index_posts_on_user_id"
   end
 
+  create_table "relationships", options: "ENGINE=InnoDB DEFAULT CHARSET=utf8", force: :cascade do |t|
+    t.bigint "user_id"
+    t.bigint "fan_id"
+    t.datetime "created_at", null: false
+    t.datetime "updated_at", null: false
+    t.index ["fan_id"], name: "index_relationships_on_fan_id"
+    t.index ["user_id", "fan_id"], name: "index_relationships_on_user_id_and_fan_id", unique: true
+    t.index ["user_id"], name: "index_relationships_on_user_id"
+  end
+
   create_table "users", options: "ENGINE=InnoDB DEFAULT CHARSET=utf8", force: :cascade do |t|
     t.string "name", null: false
     t.string "email", default: "", null: false
@@ -49,4 +59,6 @@ ActiveRecord::Schema.define(version: 2019_11_17_092617) do
   add_foreign_key "bookmarks", "posts"
   add_foreign_key "bookmarks", "users"
   add_foreign_key "posts", "users"
+  add_foreign_key "relationships", "users"
+  add_foreign_key "relationships", "users", column: "fan_id"
 end
