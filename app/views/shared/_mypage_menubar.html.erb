@@ -7,27 +7,25 @@
         <%= link_to @user.name, user_path(@user.id) %>
       </div>
       <ul class="header__user-info__inner__menu">
-        <li class="header__user-info__inner__menu__bookmark">
-          <%= link_to user_bookmarks_path(@user.id), class: "header__user-info__inner__menu__bookmark#{highlight_menu}" do %>
+        <li class="header__user-info__inner__menu__item">
+          <%= link_to user_bookmarks_path(@user.id), class: "header__user-info__inner__menu__item__bookmark#{highlight_menu}" do %>
             いいね： <%= @user.bookmarks.count %>
           <% end %>
         </li>
-        <li class="header__user-info__inner__menu__follower-count">
+        <li class="header__user-info__inner__menu__item">
             フォロワー: <%= @user.followers.count %>
         </li>
-        <% if user_signed_in? %>
-          <% if @user.is_followed(current_user) %>
-            <li class="header__user-info__inner__menu__follow">
+        <li class="header__user-info__inner__menu__item">
+          <% if user_signed_in? %>
+            <% if @user.is_followed(current_user) %>
               <%= link_to "フォローを外す", user_relationship_path(@user.id, @user.relationships.find_by(fan_id: current_user.id).id), method: :delete, class: "header__user-info__inner__menu__follow btn btn-info" %>
-            </li>
-          <% else %>
-            <li class="header__user-info__inner__menu__follow">
+            <% else %>
               <%= link_to "フォロー", user_relationships_path(@user.id), method: :create, class: "header__user-info__inner__menu__follow btn btn-outline-info" %>
-            </li>
+            <% end %>
+          <% else %>
+            <%= link_to "フォロー", new_user_session_path, class: "header__user-info__inner__menu__follow btn btn-outline-info" %>
           <% end %>
-        <% else %>
-          <%= link_to "フォロー", new_user_session_path, class: "header__user-info__inner__menu__follow btn btn-outline-info" %>
-        <% end %>
+        </li>
       </ul>
     </div>
   </div>
