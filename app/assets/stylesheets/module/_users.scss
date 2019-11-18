@@ -20,12 +20,18 @@
       &__menu {
         margin: 0;
         padding: 0;
-        &__bookmark {
-          &--highlight {
-            border-bottom: 1px solid blue;
+        display: flex;
+        align-items: center;
+        &__item {
+          margin-left: 1rem;
+          &__bookmark {
+            color: grey;
+            &--highlight {
+              border-bottom: 1px solid blue;
+              color: grey;
+            }
           }
           a {
-            color: grey;
             text-decoration: none;
           }
         }
