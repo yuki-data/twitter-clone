@@ -12,6 +12,9 @@
             いいね： <%= @user.bookmarks.count %>
           <% end %>
         </li>
+        <li class="header__user-info__inner__menu__follower-count">
+            フォロワー: <%= @user.followers.count %>
+        </li>
         <% if user_signed_in? %>
           <% if @user.is_followed(current_user) %>
             <li class="header__user-info__inner__menu__follow">
