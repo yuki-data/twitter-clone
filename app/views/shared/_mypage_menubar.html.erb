@@ -12,6 +12,19 @@
             いいね： <%= @user.bookmarks.count %>
           <% end %>
         </li>
+        <% if user_signed_in? %>
+          <% if @user.is_followed(current_user) %>
+            <li class="header__user-info__inner__menu__follow">
+              <%= link_to "フォローを外す", user_relationship_path(@user.id, @user.relationships.find_by(fan_id: current_user.id).id), method: :delete, class: "header__user-info__inner__menu__follow btn btn-info" %>
+            </li>
+          <% else %>
+            <li class="header__user-info__inner__menu__follow">
+              <%= link_to "フォロー", user_relationships_path(@user.id), method: :create, class: "header__user-info__inner__menu__follow btn btn-outline-info" %>
+            </li>
+          <% end %>
+        <% else %>
+          <%= link_to "フォロー", new_user_session_path, class: "header__user-info__inner__menu__follow btn btn-outline-info" %>
+        <% end %>
       </ul>
     </div>
   </div>
