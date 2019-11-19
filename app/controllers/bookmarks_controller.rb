@@ -18,7 +18,14 @@ class BookmarksController < ApplicationController
         end
         redirect_back(fallback_location: root_path)
       end
-      format.js
+      format.js do
+        if @bookmark.errors.empty?
+          @post = Post.find(bookmark_params[:post_id])
+          @status = "success"
+        else
+          @status = "fail"
+        end
+      end
     end
   end
 

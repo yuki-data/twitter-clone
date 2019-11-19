@@ -1,0 +1,2 @@
+<%= link_to icon("fas", "heart"), post_bookmark_path(@post.id, @post.bookmarks.find_by(user_id: current_user.id).id),
+  method: :delete, class: "posts__card__bottom__bookmark__icon--cheched" %>
