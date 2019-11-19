@@ -40,7 +40,7 @@
         <% if post.is_bookmarked(current_user.id) %>
           <%= link_to icon("fas", "heart"), post_bookmark_path(post.id, post.bookmarks.find_by(user_id: current_user.id).id), method: :delete %>
         <% else %>
-          <%= link_to icon("far", "heart"), post_bookmarks_path(post.id), method: :create %>
+          <%= link_to icon("far", "heart"), post_bookmarks_path(post.id), method: :post, remote: true %>
         <% end %>
       <% else %>
         <%= link_to link_to icon("far", "heart"), new_user_session_path %>
