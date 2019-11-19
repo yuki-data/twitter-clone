@@ -8,13 +8,18 @@ class BookmarksController < ApplicationController
 
   def create
     return if Bookmark.find_by(bookmark_params)
-    bookmark = Bookmark.create(bookmark_params)
-    if bookmark.errors.empty?
-      flash[:notice] = "ブックマークしました"
-    else
-      flash[:alert] = "ブックマークに失敗しました"
+    @bookmark = Bookmark.create(bookmark_params)
+    respond_to do |format|
+      format.html do
+        if @bookmark.errors.empty?
+          flash[:notice] = "ブックマークしました"
+        else
+          flash[:alert] = "ブックマークに失敗しました"
+        end
+        redirect_back(fallback_location: root_path)
+      end
+      format.js
     end
-    redirect_back(fallback_location: root_path)
   end
 
   def destroy
