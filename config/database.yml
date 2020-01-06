@@ -52,3 +52,7 @@ production:
   database: twitter-clone_production
   username: twitter-clone
   password: <%= ENV['TWITTER-CLONE_DATABASE_PASSWORD'] %>
+  adapter: postgresql
+  encoding: unicode
+  pool: <%= ENV.fetch("RAILS_MAX_THREADS") { 5 } %>
+  url: <%= ENV['DATABASE_URL'] %>
