@@ -89,6 +89,9 @@ group :production do
   gem 'pg'
 end
 
+# S3への画像アップロード
+gem 'fog-aws'
+
 group :development, :test do
   # 以下はvscodeの拡張用
   gem "rubocop"
