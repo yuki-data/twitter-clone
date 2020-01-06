@@ -77,6 +77,8 @@ gem 'mini_magick'
 gem 'data-confirm-modal'
 # ブックマークの数を数える
 gem 'counter_culture'
+# ページネーション
+gem "kaminari"
 
 group :development, :test do
   # 以下はvscodeの拡張用
