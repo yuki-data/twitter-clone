@@ -34,18 +34,5 @@
       </div>
     </div>
   <% end %>
-  <div class="posts__card__bottom card-body">
-    <div class="posts__card__bottom__bookmark">
-      <% if user_signed_in? %>
-        <% if post.is_bookmarked(current_user.id) %>
-          <%= link_to icon("fas", "heart"), post_bookmark_path(post.id, post.bookmarks.find_by(user_id: current_user.id).id), method: :delete %>
-        <% else %>
-          <%= link_to icon("far", "heart"), post_bookmarks_path(post.id), method: :create %>
-        <% end %>
-      <% else %>
-        <%= link_to link_to icon("far", "heart"), new_user_session_path %>
-      <% end %>
-    </div>
-    <div class="posts__card__bottom__bookmarks-count"><%= post.bookmarks_count %></div>
-  </div>
+  <%= render partial: "shared/post_card_bottom", locals: { post: post } %>
 </div>
