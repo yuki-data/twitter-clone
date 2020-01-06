@@ -91,8 +91,6 @@ end
 
 # S3への画像アップロード
 gem 'fog-aws'
-# 環境設定
-gem 'config'
 
 group :development, :test do
   # 以下はvscodeの拡張用
