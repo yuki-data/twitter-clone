@@ -1,9 +1,7 @@
 <% if @status == 'success' %>
 var current_post = $(".posts__card[data-post-id='<%= @post.id %>']");
-var target_bookmark = current_post.find(".posts__card__bottom__bookmark__icon--uncheched");
-target_bookmark.replaceWith("<%= j(render("bookmarks/bookmark_button_checked")) %>");
-var count = $(".posts__card__bottom__bookmarks-count").text();
-$(".posts__card__bottom__bookmarks-count").text(praseInt(count) + 1);
+var target_bookmark = $(".posts__card[data-post-id='<%= @post.id %>']").find(".posts__card__bottom");
+target_bookmark.replaceWith("<%= j(render("bookmarks/bookmark_button_checked", post: @post)) %>");
 <%  elsif @status == 'fail' %>
 alert('メッセージの投稿に失敗しました。メッセージを入力してください。');
 <% end %>
