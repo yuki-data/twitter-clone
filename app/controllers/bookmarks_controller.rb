@@ -3,7 +3,7 @@ class BookmarksController < ApplicationController
 
   def index
     @user = User.find(params[:user_id])
-    @posts = @user.favposts.order(created_at: :desc)
+    @posts = @user.favposts.order(created_at: :desc).page(params[:page]).per(10)
   end
 
   def create
