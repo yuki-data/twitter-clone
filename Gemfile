@@ -6,7 +6,11 @@ ruby '2.5.1'
 # Bundle edge Rails instead: gem 'rails', github: 'rails/rails'
 gem 'rails', '~> 5.2.3'
 # Use mysql as the database for Active Record
-gem 'mysql2', '>= 0.4.4', '< 0.6.0'
+
+group :development, :test do
+  gem 'mysql2', '>= 0.4.4', '< 0.6.0'
+end
+
 # Use Puma as the app server
 gem 'puma', '~> 3.12'
 # Use SCSS for stylesheets
@@ -80,6 +84,11 @@ gem 'counter_culture'
 # ページネーション
 gem "kaminari"
 
+# 本番でheroku postgresを使うため
+group :production do
+  gem 'pg'
+end
+
 group :development, :test do
   # 以下はvscodeの拡張用
   gem "rubocop"
@@ -96,7 +105,4 @@ group :development, :test do
 
   # 以下はpry
   gem 'pry-rails'
-  # gem 'pry-byebug'
-  # gem 'pry-doc'
-  # gem "awesome_print"
 end
