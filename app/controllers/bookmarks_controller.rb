@@ -31,9 +31,22 @@ class BookmarksController < ApplicationController
 
   def destroy
     bookmark = current_user.bookmarks.find_by(post_id: params[:post_id])
-    if bookmark
-      bookmark.destroy
-      redirect_back(fallback_location: root_path)
+
+    respond_to do |format|
+      format.html do
+        unless bookmark && bookmark.destroy
+          flash[:alert] = "ブックマーク削除に失敗しました"
+        end
+        redirect_back(fallback_location: root_path)
+      end
+      format.js do
+        if bookmark && bookmark.destroy
+          @post = Post.find(bookmark_params[:post_id])
+          @status = "success"
+        else
+          @status = "fail"
+        end
+      end
     end
   end
 
