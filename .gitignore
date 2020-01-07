@@ -47,3 +47,6 @@ doc/
 
 # 投稿した画像を無視
 public/uploads/*
+
+# seedファイルのうち、temp_*のものはgithubにあげない
+db/seeds/temp_*.rb
