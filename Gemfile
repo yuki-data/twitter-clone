@@ -93,6 +93,11 @@ end
 gem 'fog-aws'
 
 group :development, :test do
+  # テスト用のemailアドレスを生成するため
+  gem 'faker'
+end
+
+group :development, :test do
   # 以下はvscodeの拡張用
   gem "rubocop"
   gem "ruby-debug-ide"
