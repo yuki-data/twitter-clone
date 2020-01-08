@@ -13,9 +13,10 @@ class RelationshipsController < ApplicationController
   end
 
   def destroy
-    relationship = current_user.relationships.find_by(user_id: params[:user_id])
-    if relationship
-      relationship.destroy
+    relationship = current_user.reverse_relationships.find_by(user_id: params[:user_id])
+
+    if relationship && relationship.destroy
+      flash[:notice] = "フォローを外しました"
       redirect_back(fallback_location: root_path)
     end
   end
