@@ -5,7 +5,7 @@ class PostsController < ApplicationController
   def index
     timeline = Post.timeline(current_user)
     @posts = if timeline
-               timeline.order(created_at: :desc).page(params[:page]).per(10)
+               timeline.includes(:user).order(created_at: :desc).page(params[:page]).per(10)
              else
                Kaminari.paginate_array([]).page(1)
              end
