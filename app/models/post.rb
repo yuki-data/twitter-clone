@@ -11,7 +11,7 @@ class Post < ApplicationRecord
 
   def self.timeline(user)
     if user
-      Post.where(id: [user.id] + user.following_ids)
+      Post.where(user_id: [user.id] + user.following_ids)
     end
   end
 end
