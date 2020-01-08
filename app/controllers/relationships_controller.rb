@@ -17,8 +17,10 @@ class RelationshipsController < ApplicationController
 
     if relationship && relationship.destroy
       flash[:notice] = "フォローを外しました"
-      redirect_back(fallback_location: root_path)
+    else
+      flash[:alert] = "フォローを外せませんでした。"
     end
+    redirect_back(fallback_location: root_path)
   end
 
   def relationship_params
