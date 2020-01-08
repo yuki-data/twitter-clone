@@ -89,6 +89,9 @@ group :production do
   gem 'pg'
 end
 
+# ローカル用の設定を適用するため
+gem 'config'
+
 # S3への画像アップロード
 gem 'fog-aws'
 
