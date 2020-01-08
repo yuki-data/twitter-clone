@@ -8,4 +8,10 @@ class Post < ApplicationRecord
   def is_bookmarked(user_id)
     favuser_ids.include?(user_id)
   end
+
+  def self.timeline(user)
+    if user
+      Post.where(user_id: [user.id] + user.following_ids)
+    end
+  end
 end
