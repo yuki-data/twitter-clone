@@ -50,3 +50,7 @@ public/uploads/*
 
 # seedファイルのうち、temp_*のものはgithubにあげない
 db/seeds/temp_*.rb
+
+config/settings.local.yml
+config/settings/*.local.yml
+config/environments/*.local.yml

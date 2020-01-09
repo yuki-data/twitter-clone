@@ -29,7 +29,10 @@ class PostsController < ApplicationController
           flash.now[:alert] = "メッセージが入力されていません"
           render :new
         end
-        format.js { @status = "fail" }
+        format.js do
+          @status = "fail"
+          @error_message = @post_latest.errors.full_messages.join("\n")
+        end
       end
     end
   end
@@ -53,7 +56,10 @@ class PostsController < ApplicationController
           flash.now[:alert] = "メッセージが入力されていません"
           render :new
         end
-        format.js { @status = "fail" }
+        format.js do
+          @status = "fail"
+          @error_message = @post.errors.full_messages.join("\n")
+        end
       end
     end
   end

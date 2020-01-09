@@ -83,14 +83,16 @@ gem 'data-confirm-modal'
 gem 'counter_culture'
 # ページネーション
 gem "kaminari"
-
 # 本番でheroku postgresを使うため
 group :production do
   gem 'pg'
 end
-
+# ローカル用の設定を適用するため
+gem 'config'
 # S3への画像アップロード
 gem 'fog-aws'
+# 日本語化のため
+gem 'rails-i18n'
 
 group :development, :test do
   # テスト用のemailアドレスを生成するため
