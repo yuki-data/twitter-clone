@@ -16,4 +16,16 @@ class User < ApplicationRecord
   def is_followed(user)
     followers.include?(user)
   end
+
+  def is_following(user)
+    followings.include?(user)
+  end
+
+  def follow(user)
+    reverse_relationships.create(user_id: user.id)
+  end
+
+  def unfollow(user)
+    reverse_relationships.find_by(user_id: user.id)&.destroy
+  end
 end
