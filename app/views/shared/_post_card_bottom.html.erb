@@ -2,7 +2,7 @@
   <div class="posts__card__bottom__bookmark">
     <% if user_signed_in? %>
       <% if post.is_bookmarked(current_user.id) %>
-        <%= link_to icon("fas", "heart"), post_bookmark_path(post.id, post.bookmarks.find_by(user_id: current_user.id).id),
+        <%= link_to icon("fas", "heart"), post_bookmarks_path(post.id),
           method: :delete, remote: true, class: "posts__card__bottom__bookmark__icon--cheched" %>
       <% else %>
         <%= link_to icon("far", "heart"), post_bookmarks_path(post.id),
