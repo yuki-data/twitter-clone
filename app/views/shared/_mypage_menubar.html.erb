@@ -8,12 +8,12 @@
       </div>
       <ul class="header__user-info__inner__menu">
         <li class="header__user-info__inner__menu__item">
-          <%= link_to user_bookmarks_path(@user.id), class: "header__user-info__inner__menu__item__bookmark#{"--highlight" if params[:controller] == "bookmarks"}" do %>
+          <%= link_to user_bookmarks_path(@user.id), class: "header__user-info__inner__menu__item__bookmark#{active_tab?("bookmarks")}" do %>
             いいね： <%= @user.bookmarks.count %>
           <% end %>
         </li>
         <li class="header__user-info__inner__menu__item">
-          <%= link_to user_relationships_path(@user.id), class: "header__user-info__inner__menu__item__bookmark#{"--highlight" if params[:controller] == "relationships"}" do %>
+          <%= link_to user_relationships_path(@user.id), class: "header__user-info__inner__menu__item__bookmark#{active_tab?("relationships")}" do %>
             フォロワー: <%= @user.followers.count %>
           <% end %>
         </li>
