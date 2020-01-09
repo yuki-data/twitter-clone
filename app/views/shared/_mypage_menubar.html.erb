@@ -13,7 +13,9 @@
           <% end %>
         </li>
         <li class="header__user-info__inner__menu__item">
+          <%= link_to user_relationships_path(@user.id), class: "header__user-info__inner__menu__item__bookmark#{highlight_menu}" do %>
             フォロワー: <%= @user.followers.count %>
+          <% end %>
         </li>
         <li class="header__user-info__inner__menu__item">
           <% if user_signed_in? %>

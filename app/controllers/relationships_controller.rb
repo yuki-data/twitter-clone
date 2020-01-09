@@ -1,6 +1,10 @@
 class RelationshipsController < ApplicationController
   before_action :authenticate_user!
 
+  def index
+    @user = User.find(params[:user_id])
+  end
+
   def create
     return if Relationship.find_by(relationship_params)
     relationship = Relationship.create(relationship_params)
