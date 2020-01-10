@@ -1,8 +1,12 @@
 class RelationshipsController < ApplicationController
   before_action :authenticate_user!
 
-  def index
+  def followers
     @user = User.find(params[:user_id])
+  end
+
+  def followings
+
   end
 
   def create
