@@ -13,12 +13,12 @@
           <% end %>
         </li>
         <li class="header__user-info__inner__menu__item">
-          <%= link_to followers_user_relationships_path(@user.id), class: "header__user-info__inner__menu__item__bookmark#{active_tab?("relationships")}" do %>
+          <%= link_to followers_user_relationships_path(@user.id), class: "header__user-info__inner__menu__item__bookmark#{active_tab?("relationships", "followers")}" do %>
             フォロワー: <%= @user.followers.count %>
           <% end %>
         </li>
         <li class="header__user-info__inner__menu__item">
-          <%= link_to followings_user_relationships_path(@user.id), class: "header__user-info__inner__menu__item__bookmark#{active_tab?("relationships")}" do %>
+          <%= link_to followings_user_relationships_path(@user.id), class: "header__user-info__inner__menu__item__bookmark#{active_tab?("relationships", "followings")}" do %>
             フォロー: <%= @user.followings.count %>
           <% end %>
         </li>
