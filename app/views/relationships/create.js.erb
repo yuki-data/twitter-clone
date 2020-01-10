@@ -1,6 +1,8 @@
 <% if @status == 'success' %>
 var current_post = $(".posts__card[data-user-id='<%= @user.id %>']");
 current_post.replaceWith("<%= j(render("follower_card", user: @user)) %>");
+var navbar_follow_button = $("[data-user-id='<%= @user.id %>'][data-follow-button='true']");
+navbar_follow_button.html("<%= j(render("shared/follow_button", follower: current_user, followee: @user)) %>");
 <%  elsif @status == 'fail' %>
 alert("送信に失敗しました");
 <% end %>
