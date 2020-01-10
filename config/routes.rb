@@ -6,7 +6,7 @@ Rails.application.routes.draw do
     resource :relationships, only: [:create, :destroy] do
       collection do
         get "followers"
-        get "followerings"
+        get "followings"
       end
     end
   end
