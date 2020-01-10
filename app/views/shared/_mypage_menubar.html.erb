@@ -22,7 +22,7 @@
             フォロー: <%= @user.followings.count %>
           <% end %>
         </li>
-        <li class="header__user-info__inner__menu__item">
+        <li class="header__user-info__inner__menu__item" data-follow-button="true", data-user-id="<%= @user.id %>">
           <% if user_signed_in? && current_user != @user %>
             <%= render partial: "shared/follow_button", locals: { follower: current_user, followee: @user } %>
           <% end %>
