@@ -8,22 +8,27 @@
       </div>
       <ul class="header__user-info__inner__menu">
         <li class="header__user-info__inner__menu__item">
-          <%= link_to user_bookmarks_path(@user.id), class: "header__user-info__inner__menu__item__bookmark#{highlight_menu}" do %>
+          <%= link_to user_bookmarks_path(@user.id), class: "header__user-info__inner__menu__item__bookmark#{active_tab?("bookmarks")}" do %>
             いいね： <%= @user.bookmarks.count %>
           <% end %>
         </li>
         <li class="header__user-info__inner__menu__item">
+          <%= link_to followers_user_relationships_path(@user.id), class: "header__user-info__inner__menu__item__bookmark#{active_tab?("relationships", "followers")}" do %>
             フォロワー: <%= @user.followers.count %>
+          <% end %>
         </li>
         <li class="header__user-info__inner__menu__item">
-          <% if user_signed_in? %>
+          <%= link_to followings_user_relationships_path(@user.id), class: "header__user-info__inner__menu__item__bookmark#{active_tab?("relationships", "followings")}" do %>
+            フォロー: <%= @user.followings.count %>
+          <% end %>
+        </li>
+        <li class="header__user-info__inner__menu__item">
+          <% if user_signed_in? && current_user != @user %>
             <% if @user.is_followed(current_user) %>
-              <%= link_to "フォローを外す", user_relationship_path(@user.id), method: :delete, class: "header__user-info__inner__menu__follow btn btn-info" %>
+              <%= link_to "フォローを外す", user_relationships_path(@user.id), method: :delete, class: "header__user-info__inner__menu__follow btn btn-info" %>
             <% else %>
               <%= link_to "フォロー", user_relationships_path(@user.id), method: :create, class: "header__user-info__inner__menu__follow btn btn-outline-info" %>
             <% end %>
-          <% else %>
-            <%= link_to "フォロー", new_user_session_path, class: "header__user-info__inner__menu__follow btn btn-outline-info" %>
           <% end %>
         </li>
       </ul>
