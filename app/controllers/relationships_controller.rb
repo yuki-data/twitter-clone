@@ -1,6 +1,7 @@
 class RelationshipsController < ApplicationController
   before_action :authenticate_user!
-  before_action :set_user, only: [:followers, :followings]
+  before_action :set_user, only: [:create, :destroy, :followers, :followings]
+  before_action :redirect_if_user_nil, only: [:create, :destroy]
 
   def followers
   end
@@ -9,34 +10,55 @@ class RelationshipsController < ApplicationController
   end
 
   def create
-    return if Relationship.find_by(relationship_params)
-    relationship = Relationship.create(relationship_params)
-    if relationship.errors.empty?
-      flash[:notice] = "フォローしました"
-    else
-      flash[:alert] = "フォローに失敗しました"
+    relationship = current_user.follow(@user)
+
+    respond_to do |format|
+      format.html do
+        if relationship.errors.empty?
+          flash[:notice] = "フォローしました"
+        else
+          flash[:alert] = "フォローに失敗しました"
+        end
+        redirect_back(fallback_location: root_path)
+      end
+      format.js do
+        if relationship.errors.empty?
+          @status = "success"
+        else
+          @status = "fail"
+        end
+      end
     end
-    redirect_back(fallback_location: root_path)
   end
 
   def destroy
-    relationship = current_user.reverse_relationships.find_by(user_id: params[:user_id])
-
-    if relationship && relationship.destroy
-      flash[:notice] = "フォローを外しました"
-    else
-      flash[:alert] = "フォローを外せませんでした。"
+    relationship = current_user.unfollow(@user)
+    respond_to do |format|
+      format.html do
+        if relationship
+          flash[:notice] = "フォローを外しました"
+        else
+          flash[:alert] = "フォローを外せませんでした。"
+        end
+        redirect_back(fallback_location: root_path)
+      end
+      format.js do
+        if relationship
+          @status = "success"
+        else
+          @status = "fail"
+        end
+      end
     end
-    redirect_back(fallback_location: root_path)
   end
 
   private
 
-  def relationship_params
-    params.permit(:user_id).merge(fan_id: current_user.id)
-  end
-
   def set_user
     @user = User.find(params[:user_id])
+  end
+
+  def redirect_if_user_nil
+    redirect_back(fallback_location: root_path) and return unless @user
   end
 end

@@ -1,0 +1,8 @@
+<div class="posts__card card mx-auto" data-user-id="<%= user.id %>">
+  <div class="card-body">
+    <h5 class="card-title"><%= link_to user.name, user_path(user.id) %></h5>
+    <% if current_user !=  user %>
+      <%= render partial: "shared/follow_button", locals: { follower: current_user, followee: user } %>
+    <% end %>
+  </div>
+</div>
