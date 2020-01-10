@@ -11,12 +11,24 @@ class RelationshipsController < ApplicationController
   def create
     return if Relationship.find_by(relationship_params)
     relationship = Relationship.create(relationship_params)
-    if relationship.errors.empty?
-      flash[:notice] = "フォローしました"
-    else
-      flash[:alert] = "フォローに失敗しました"
+
+    respond_to do |format|
+      format.html do
+        if relationship.errors.empty?
+          flash[:notice] = "フォローしました"
+        else
+          flash[:alert] = "フォローに失敗しました"
+        end
+        redirect_back(fallback_location: root_path)
+      end
+      format.js do
+        if relationship.errors.empty?
+          @status = "success"
+        else
+          @status = "fail"
+        end
+      end
     end
-    redirect_back(fallback_location: root_path)
   end
 
   def destroy
