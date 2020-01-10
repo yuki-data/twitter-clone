@@ -1,12 +1,11 @@
 class RelationshipsController < ApplicationController
   before_action :authenticate_user!
+  before_action :set_user, only: [:followers, :followings]
 
   def followers
-    @user = User.find(params[:user_id])
   end
 
   def followings
-
   end
 
   def create
@@ -31,7 +30,13 @@ class RelationshipsController < ApplicationController
     redirect_back(fallback_location: root_path)
   end
 
+  private
+
   def relationship_params
     params.permit(:user_id).merge(fan_id: current_user.id)
+  end
+
+  def set_user
+    @user = User.find(params[:user_id])
   end
 end
