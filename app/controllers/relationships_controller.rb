@@ -33,13 +33,23 @@ class RelationshipsController < ApplicationController
 
   def destroy
     relationship = current_user.unfollow(@user)
-
-    if relationship
-      flash[:notice] = "フォローを外しました"
-    else
-      flash[:alert] = "フォローを外せませんでした。"
+    respond_to do |format|
+      format.html do
+        if relationship
+          flash[:notice] = "フォローを外しました"
+        else
+          flash[:alert] = "フォローを外せませんでした。"
+        end
+        redirect_back(fallback_location: root_path)
+      end
+      format.js do
+        if relationship
+          @status = "success"
+        else
+          @status = "fail"
+        end
+      end
     end
-    redirect_back(fallback_location: root_path)
   end
 
   private
