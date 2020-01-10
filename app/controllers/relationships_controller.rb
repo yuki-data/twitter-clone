@@ -9,8 +9,9 @@ class RelationshipsController < ApplicationController
   end
 
   def create
-    return if Relationship.find_by(relationship_params)
-    relationship = Relationship.create(relationship_params)
+    @user = User.find_by(id: relationship_params[:user_id])
+    redirect_back(fallback_location: root_path) and return unless @user
+    relationship = current_user.follow(@user)
 
     respond_to do |format|
       format.html do
@@ -32,9 +33,11 @@ class RelationshipsController < ApplicationController
   end
 
   def destroy
-    relationship = current_user.reverse_relationships.find_by(user_id: params[:user_id])
+    @user = User.find_by(id: relationship_params[:user_id])
+    redirect_back(fallback_location: root_path) and return unless @user
+    relationship = current_user.unfollow(@user)
 
-    if relationship && relationship.destroy
+    if relationship
       flash[:notice] = "フォローを外しました"
     else
       flash[:alert] = "フォローを外せませんでした。"
