@@ -4,11 +4,7 @@ class PostsController < ApplicationController
 
   def index
     timeline = Post.timeline(current_user)
-    @posts = if timeline
-               timeline.includes(:user).order(created_at: :desc).page(params[:page]).per(10)
-             else
-               Kaminari.paginate_array([]).page(1)
-             end
+    @posts = pagenate(timeline)
   end
 
   def new
@@ -78,6 +74,13 @@ class PostsController < ApplicationController
     end
   end
 
+  def search
+    @keyword = params[:keyword]
+    redirect_back(fallback_location: root_path) unless @keyword
+    posts = Post.search_by_content(@keyword)
+    @posts = pagenate(posts)
+  end
+
   private
 
   def set_new_post
@@ -90,5 +93,13 @@ class PostsController < ApplicationController
 
   def post_params
     params.require(:post).permit(:content, :image).merge(user_id: current_user.id)
+  end
+
+  def pagenate(posts)
+    if posts
+      posts.includes(:user).order(created_at: :desc).page(params[:page]).per(10)
+    else
+      Kaminari.paginate_array([]).page(1)
+    end
   end
 end

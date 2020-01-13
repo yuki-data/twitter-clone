@@ -14,4 +14,9 @@ class Post < ApplicationRecord
       Post.where(user_id: [user.id] + user.following_ids)
     end
   end
+
+  def self.search_by_content(keyword)
+    return if keyword.size == 0
+    Post.where("content like ?", "%#{keyword}%")
+  end
 end
