@@ -1,8 +1,14 @@
 .posts {
   padding-top: 1rem;
-  &__card {
+  %__card {
     max-width: 32rem;
     margin-bottom: 0.5rem;
+  }
+  &__card {
+    @extend %__card;
+    &--no-results {
+      @extend %__card;
+    }
     &__header {
       ul {
         margin: 0;

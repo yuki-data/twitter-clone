@@ -2,5 +2,6 @@
 <%= render "modal_post_container" %>
 <div class="posts">
   <%= render partial: "shared/post_card", collection: @posts, as: :post %>
+  <%= render partial: "notice_no_results" %>
 </div>
 <%= paginate(@posts) %>
