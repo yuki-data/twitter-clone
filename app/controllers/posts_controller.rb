@@ -77,6 +77,7 @@ class PostsController < ApplicationController
   def search
     posts = Post.search_by_content(params[:keyword])
     @posts = pagenate(posts)
+    @keyword = params[:keyword]
   end
 
   private
