@@ -78,6 +78,10 @@ class PostsController < ApplicationController
     end
   end
 
+  def search
+    @posts = Post.search_by_content(params[:keyword]).includes(:user).order(created_at: :desc).page(params[:page]).per(10)
+  end
+
   private
 
   def set_new_post
