@@ -75,9 +75,10 @@ class PostsController < ApplicationController
   end
 
   def search
-    posts = Post.search_by_content(params[:keyword])
-    @posts = pagenate(posts)
     @keyword = params[:keyword]
+    redirect_back(fallback_location: root_path) unless @keyword
+    posts = Post.search_by_content(@keyword)
+    @posts = pagenate(posts)
   end
 
   private
