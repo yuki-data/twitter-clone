@@ -1,0 +1,5 @@
+.header {
+  &__fix-navbar {
+    @include fix-on-top(0);
+  }
+}
