@@ -4,9 +4,11 @@ class RelationshipsController < ApplicationController
   before_action :redirect_if_user_nil, only: [:create, :destroy]
 
   def followers
+    @users = @user.followers
   end
 
   def followings
+    @users = @user.followings
   end
 
   def create

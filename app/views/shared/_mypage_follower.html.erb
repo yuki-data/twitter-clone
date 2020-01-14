@@ -1,0 +1,5 @@
+<%= render partial: "shared/mypage_menubar" %>
+
+<div class="posts">
+  <%= render partial: "follower_card", collection: @users, as: :user %>
+</div>
