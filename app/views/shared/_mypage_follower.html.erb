@@ -3,3 +3,4 @@
 <div class="posts posts-mypage">
   <%= render partial: "follower_card", collection: @users, as: :user %>
 </div>
+<%= paginate(@users) %>
