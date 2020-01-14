@@ -1,6 +1,6 @@
 <%= render "navbar" %>
 <%= render "modal_post_container" %>
-<div class="posts">
+<div class="posts posts-timeline">
   <%= render partial: "shared/post_card", collection: @posts, as: :post %>
   <% if @posts.empty? %>
     <%= render partial: "prompt_new_post" %>

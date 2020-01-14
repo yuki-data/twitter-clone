@@ -1,5 +1,15 @@
-.posts {
+%posts {
   padding-top: 1rem;
+}
+.posts {
+  &-mypage {
+    @extend %posts;
+    margin-top: $navbar-height + $mypage-header-height;
+  }
+  &-timeline {
+    @extend %posts;
+    margin-top: $navbar-height;
+  }
   %__card {
     max-width: 32rem;
     margin-bottom: 0.5rem;
