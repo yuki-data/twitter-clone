@@ -2,9 +2,16 @@
 @import "font-awesome";
 @import "config/reset";
 @import "bootstrap";
+// 以下でユーザー定義のスタイルをインポートする
+// variables
+@import "config/variables";
+// mixins
+@import "config/mixins";
+// modules
 @import "module/devise_form";
 @import "module/users";
 @import "module/posts";
 @import "module/post_form";
 @import "module/flash";
 @import "module/pagination";
+@import "module/header_navbar";
