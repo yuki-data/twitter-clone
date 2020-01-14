@@ -1,0 +1,8 @@
+.header {
+  &__fix-navbar {
+    @include fix-on-top(0);
+  }
+  &__fix-mypage-header {
+    @include fix-on-top($navbar-height);
+  }
+}

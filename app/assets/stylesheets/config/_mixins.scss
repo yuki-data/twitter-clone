@@ -1,0 +1,7 @@
+@mixin fix-on-top($top) {
+  position: fixed;
+  top: $top;
+  left: 0;
+  width: 100%;
+  z-index: 1;
+}

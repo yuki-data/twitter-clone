@@ -4,9 +4,11 @@ class RelationshipsController < ApplicationController
   before_action :redirect_if_user_nil, only: [:create, :destroy]
 
   def followers
+    @users = pagenate(@user.followers)
   end
 
   def followings
+    @users = pagenate(@user.followings)
   end
 
   def create
@@ -60,5 +62,13 @@ class RelationshipsController < ApplicationController
 
   def redirect_if_user_nil
     redirect_back(fallback_location: root_path) and return unless @user
+  end
+
+  def pagenate(users)
+    if users
+      users.order(created_at: :desc).page(params[:page]).per(10)
+    else
+      Kaminari.paginate_array([]).page(1)
+    end
   end
 end
