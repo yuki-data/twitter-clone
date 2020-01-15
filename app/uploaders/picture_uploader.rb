@@ -25,7 +25,10 @@ class PictureUploader < CarrierWave::Uploader::Base
   # end
 
   include CarrierWave::MiniMagick
-  process resize_to_limit: [200, 200]
+  process resize_to_limit: [
+    (Settings.carrierwave&.resize_limit_x || 200),
+    (Settings.carrierwave&.resize_limit_y || 200)
+  ]
 
   # Process files as they are uploaded:
   # process scale: [200, 300]

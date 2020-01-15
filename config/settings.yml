@@ -1,2 +1,4 @@
 carrierwave:
-  # size_upper_limit: 500
+  resize_limit_x: 400
+  resize_limit_y: 400
+  size_upper_limit: 500
