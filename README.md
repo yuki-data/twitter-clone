@@ -30,7 +30,7 @@
 ![画像投稿](https://gyazo.com/cb273ec72b2026f24c2467a38997b34a.gif)
 
 記事の検索やフォローもできます。
-[検索機能とフォロー機能](https://gyazo.com/0ae1385c2e589f9488d89d41b0efd3dd.gif)
+![検索機能とフォロー機能](https://gyazo.com/0ae1385c2e589f9488d89d41b0efd3dd.gif)
 
 マイページで、ブックマークやフォロワーの一覧を確認できます。
 ![マイページでフォロー、フォロワー、いいね一覧を表示](https://gyazo.com/ac9fce4139d188cba71cf66f0c79efd7.gif)
