@@ -9,7 +9,9 @@ class ApplicationController < ActionController::Base
   end
 
   def production?
-    Rails.env.production?
+    if Rails.env.production?
+      true unless ENV["BASIC_AUTH"] && (ENV["BASIC_AUTH"] == "false")
+    end
   end
 
   def basic_auth
