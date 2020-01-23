@@ -54,3 +54,6 @@ db/seeds/temp_*.rb
 config/settings.local.yml
 config/settings/*.local.yml
 config/environments/*.local.yml
+
+# remove private note
+readme.txt
