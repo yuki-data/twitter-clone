@@ -22,6 +22,11 @@
           </div>
         <% end %>
       </div>
+      <% if @post.image.present? %>
+        <div class="post-form__preview-image">
+          <%= image_tag @post.image.url %>
+        </div>
+      <% end %>
     </div>
   </div>
 </div>
