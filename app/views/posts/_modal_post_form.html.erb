@@ -18,6 +18,7 @@
             <%= form.label :image, class: "post-form__form__content__image" do%>
               <%= icon("fas", "image", class: "post-form__form__content__image__icon", id: "upload-icon") %>
               <%= form.file_field :image, class: "post-form__form__content__image__field" %>
+              <%= form.check_box :remove_image, class: "post-form__form__content__image__remove" %>
             <% end %>
           </div>
         <% end %>
