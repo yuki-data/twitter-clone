@@ -16,7 +16,7 @@
           <div class="post-form__form__content">
             <%= form.text_area :content, rows: 3, class: "form-control post-form__form__content__text", placeholder: "メッセージ" %>
             <%= form.label :image, class: "post-form__form__content__image" do%>
-              <%= icon("fas", "image", class: "post-form__form__content__image__icon") %>
+              <%= icon("fas", "image", class: "post-form__form__content__image__icon", id: "upload-icon") %>
               <%= form.file_field :image, class: "post-form__form__content__image__field" %>
             <% end %>
           </div>
@@ -27,10 +27,10 @@
           <div class="post-form__preview-image">
             <%= image_tag @post.image.url %>
           </div>
-          <div class="post-form__preview-menus">
-            <button type="button" class="btn btn-outline-primary">削除</button>
-          </div>
         <% end %>
+        <div class="post-form__preview-menus">
+          <button type="button" class="btn btn-outline-primary" id="remove-preview-button">削除</button>
+        </div>
       </div>
     </div>
   </div>
