@@ -8,8 +8,8 @@
   padding: 1rem 1rem 0;
   margin-top: $navbar-height;
   &-modal {
-  padding: 0.5rem 1rem 0;
-  @extend %post-form;
+    padding: 0.5rem 1rem 0;
+    @extend %post-form;
   }
   &__form {
     flex-basis: 32rem;
@@ -35,5 +35,17 @@
         margin: 0.5rem;
       }
     }
+  }
+  &__preview-image {
+    padding: 5px;
+    text-align: center;
+    &:hover {
+      background-color: #b89f9f;
+    }
+  }
+  &__preview-menus {
+    padding: 5px 0;
+    display: flex;
+    justify-content: center;
   }
 }
