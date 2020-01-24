@@ -16,7 +16,7 @@
           <div class="post-form__form__content">
             <%= form.text_area :content, rows: 3, class: "form-control post-form__form__content__text", placeholder: "メッセージ" %>
             <%= form.label :image, class: "post-form__form__content__image" do%>
-              <%= icon("fas", "image") %>
+              <%= icon("fas", "image", class: "post-form__form__content__image__icon") %>
               <%= form.file_field :image, class: "post-form__form__content__image__field" %>
             <% end %>
           </div>

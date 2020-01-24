@@ -15,10 +15,15 @@
     flex-basis: 32rem;
     &__content {
       &__image {
-        font-size: 1.8rem;
+        font-size: 2rem;
         margin: 0.5rem;
         &:hover {
           cursor: pointer;
+        }
+        &__icon {
+          &:hover {
+            color: #808080;
+          }
         }
         &__field {
           display: none;
