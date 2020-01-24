@@ -19,6 +19,14 @@ $(document).on("turbolinks:load", function() {
     $("#remove-preview-button").hide();
   }
 
+  function checkOnFileRemove() {
+    $("#post_remove_image").prop("checked", true);
+  }
+
+  function checkOffFileRemove() {
+    $("#post_remove_image").prop("checked", false);
+  }
+
   $("#modal-post").on("show.bs.modal", function() {
     if ($(".post-form__preview-image").length != 0) {
       showRemoveButton();
@@ -31,6 +39,7 @@ $(document).on("turbolinks:load", function() {
     $("#post_image").val("");
     $(".post-form__preview-image").remove();
     showUploadIcon();
+    checkOnFileRemove();
   });
 
   $("body").on("change", "#post_image", function() {
@@ -43,5 +52,6 @@ $(document).on("turbolinks:load", function() {
     };
     fileReader.readAsDataURL(file);
     showRemoveButton();
+    checkOffFileRemove();
   });
 });
