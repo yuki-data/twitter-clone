@@ -22,14 +22,16 @@
           </div>
         <% end %>
       </div>
-      <% if @post.image.present? %>
-        <div class="post-form__preview-image">
-          <%= image_tag @post.image.url %>
-        </div>
-        <div class="post-form__preview-menus">
-          <button type="button" class="btn btn-outline-primary">削除</button>
-        </div>
-      <% end %>
+      <div class="post-form-preview">
+        <% if @post.image.present? %>
+          <div class="post-form__preview-image">
+            <%= image_tag @post.image.url %>
+          </div>
+          <div class="post-form__preview-menus">
+            <button type="button" class="btn btn-outline-primary">削除</button>
+          </div>
+        <% end %>
+      </div>
     </div>
   </div>
 </div>
