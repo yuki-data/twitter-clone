@@ -10,7 +10,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 2019_11_18_015054) do
+ActiveRecord::Schema.define(version: 2020_01_26_070834) do
 
   create_table "bookmarks", options: "ENGINE=InnoDB DEFAULT CHARSET=utf8", force: :cascade do |t|
     t.bigint "user_id"
@@ -42,6 +42,16 @@ ActiveRecord::Schema.define(version: 2019_11_18_015054) do
     t.index ["user_id"], name: "index_relationships_on_user_id"
   end
 
+  create_table "user_profiles", options: "ENGINE=InnoDB DEFAULT CHARSET=utf8", force: :cascade do |t|
+    t.bigint "user_id"
+    t.text "profile"
+    t.string "thumbnail"
+    t.string "bg_image"
+    t.datetime "created_at", null: false
+    t.datetime "updated_at", null: false
+    t.index ["user_id"], name: "index_user_profiles_on_user_id"
+  end
+
   create_table "users", options: "ENGINE=InnoDB DEFAULT CHARSET=utf8", force: :cascade do |t|
     t.string "name", null: false
     t.string "email", default: "", null: false
@@ -61,4 +71,5 @@ ActiveRecord::Schema.define(version: 2019_11_18_015054) do
   add_foreign_key "posts", "users"
   add_foreign_key "relationships", "users"
   add_foreign_key "relationships", "users", column: "fan_id"
+  add_foreign_key "user_profiles", "users"
 end
