@@ -116,3 +116,8 @@ group :development, :test do
   # 以下はpry
   gem 'pry-rails'
 end
+
+group :development do
+  # ER図の自動生成のため
+  gem 'rails-erd'
+end
