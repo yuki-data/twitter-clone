@@ -1,0 +1,19 @@
+<div class="post-form">
+  <%= form_with local: true, class: "post-form__form" do |form| %>
+    <div class="post-form__form__menu">
+      <%= form.submit "保存" , class: "post-form__form__menu__submit btn btn-primary" %>
+      <%= link_to "破棄", user_path(current_user.id) , class: "post-form__form__menu__cancel btn btn-outline-primary" %>
+    </div>
+    <div class="post-form__form__content">
+      <%= form.text_area :profile, rows: 3, class: "form-control post-form__form__content__text", placeholder: "プロフィール" %>
+      <%= form.label :thumbnail, class: "post-form__form__content__image" do%>
+        <%= icon("fas", "image") %>
+        <%= form.file_field :thumbnail, class: "post-form__form__content__image__field" %>
+      <% end %>
+      <%= form.label :bg_image, class: "post-form__form__content__image" do%>
+        <%= icon("fas", "image") %>
+        <%= form.file_field :bg_image, class: "post-form__form__content__image__field" %>
+      <% end %>
+    </div>
+  <% end %>
+</div>
