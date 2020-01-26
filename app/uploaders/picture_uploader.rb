@@ -48,6 +48,10 @@ class PictureUploader < CarrierWave::Uploader::Base
     %w(jpg jpeg gif png)
   end
 
+  def content_type_whitelist
+    /image\//
+  end
+
   def size_range
     1..(Settings.carrierwave&.size_upper_limit || 500).kilobytes
   end
