@@ -5,6 +5,7 @@ class User < ApplicationRecord
          :recoverable, :rememberable, :validatable
 
   validates :name, presence: true, uniqueness: true
+
   has_many :posts
   has_many :bookmarks, dependent: :destroy
   has_many :favposts, through: :bookmarks, source: :post
@@ -12,7 +13,9 @@ class User < ApplicationRecord
   has_many :followers, through: :relationships, source: :fan
   has_many :reverse_relationships, class_name: "Relationship", foreign_key: "fan_id"
   has_many :followings, through: :reverse_relationships, source: :user
-  has_one :user_profile
+  has_one :user_profile, dependent: :destroy
+
+  after_create :create_profile
 
   def is_followed(user)
     followers.include?(user)
@@ -28,5 +31,9 @@ class User < ApplicationRecord
 
   def unfollow(user)
     reverse_relationships.find_by(user_id: user.id)&.destroy
+  end
+
+  def create_profile
+    UserProfile.create(user_id: id)
   end
 end
