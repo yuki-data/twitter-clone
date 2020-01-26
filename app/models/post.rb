@@ -19,4 +19,10 @@ class Post < ApplicationRecord
     return if keyword.size == 0
     Post.where("content like ?", "%#{keyword}%")
   end
+
+  def remove_image=(val)
+    if val == "1"
+      self.image = nil
+    end
+  end
 end
