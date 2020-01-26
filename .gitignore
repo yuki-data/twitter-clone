@@ -57,3 +57,8 @@ config/environments/*.local.yml
 
 # remove private note
 readme.txt
+
+# rails-erdによるER図の設定
+.erdconfig
+# rails-erdによるER図
+erd.pdf
