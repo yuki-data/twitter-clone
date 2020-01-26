@@ -1,5 +1,7 @@
 # twitter clone
-このアプリはツイッターのクローンアプリです。
+ツイッターのクローンアプリです。
+Herokuでデプロイ中です。
+Basic認証をかけていますので、ご覧になりたい場合には、[twitterアカウント](https://twitter.com/__yuki_ito__)までご一報ください。
 
 ![twitter clone](https://gyazo.com/728f9d12bb14d7fcf9f5294a5219b200.png)
 
