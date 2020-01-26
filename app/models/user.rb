@@ -6,12 +6,14 @@ class User < ApplicationRecord
 
   validates :name, presence: true, uniqueness: true
 
-  has_many :posts
+  has_many :posts, dependent: :destroy
   has_many :bookmarks, dependent: :destroy
   has_many :favposts, through: :bookmarks, source: :post
-  has_many :relationships
+  has_many :relationships, dependent: :destroy
   has_many :followers, through: :relationships, source: :fan
-  has_many :reverse_relationships, class_name: "Relationship", foreign_key: "fan_id"
+  has_many :reverse_relationships, class_name: "Relationship",
+                                   foreign_key: "fan_id",
+                                   dependent: :destroy
   has_many :followings, through: :reverse_relationships, source: :user
   has_one :user_profile, dependent: :destroy
 
