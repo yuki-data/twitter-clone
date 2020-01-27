@@ -1,18 +1,18 @@
 %post-form {
   display: flex;
-  justify-content: center;
+  flex-direction: column;
 }
 
 .post-form {
   @extend %post-form;
   padding: 1rem 1rem 0;
-  margin-top: $navbar-height;
+  margin: $navbar-height auto 0;
+  max-width: 32rem;
   &-modal {
     padding: 0.5rem 1rem 0;
     @extend %post-form;
   }
   &__form {
-    flex-basis: 32rem;
     &__content {
       &__image {
         font-size: 2rem;

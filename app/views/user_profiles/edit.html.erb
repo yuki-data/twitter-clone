@@ -1,6 +1,6 @@
 <%= render partial: "posts/navbar" %>
 <div class="post-form">
-  <h4 class="text-center">プロフィール編集</h4>
+  <h4 class="text-center pt-3">プロフィール編集</h4>
   <%= form_with model: @user_profile, url: user_profiles_path, local: true, class: "post-form__form" do |form| %>
     <div class="post-form__form__menu">
       <%= form.submit "保存" , class: "post-form__form__menu__submit btn btn-primary" %>
