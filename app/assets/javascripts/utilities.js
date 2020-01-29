@@ -171,7 +171,42 @@ App.Previewer = (function() {
     }
   }
 
+  function checkOnFileRemove(removeCheckbox) {
+    $(removeCheckbox).prop("checked", true);
+  }
+
+  function checkOffFileRemove(removeCheckbox) {
+    $(removeCheckbox).prop("checked", false);
+  }
+
+  class BasePreviewer extends ImagePreviewer {
+    constructor(removeCheckbox, ...args) {
+      super(...args);
+      this.removeCheckbox = removeCheckbox;
+    }
+
+    _afterPreview() {
+      return () => {
+        this.constructor._showRemoveButton(
+          this.removeButton,
+          this.uploadButton
+        );
+        checkOffFileRemove(this.removeCheckbox);
+      };
+    }
+
+    _afterRemove() {
+      return () => {
+        this.constructor._showUploadButton(
+          this.removeButton,
+          this.uploadButton
+        );
+        checkOnFileRemove(this.removeCheckbox);
+      };
+    }
+  }
+
   return {
-    ImagePreviewer: ImagePreviewer
+    BasePreviewer: BasePreviewer
   };
 })();

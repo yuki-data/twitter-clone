@@ -10,42 +10,7 @@ $(document).on("turbolinks:load", function() {
     return template;
   }
 
-  function checkOnFileRemove(removeCheckbox) {
-    $(removeCheckbox).prop("checked", true);
-  }
-
-  function checkOffFileRemove(removeCheckbox) {
-    $(removeCheckbox).prop("checked", false);
-  }
-
-  class Previewer extends App.Previewer.ImagePreviewer {
-    constructor(removeCheckbox, ...args) {
-      super(...args);
-      this.removeCheckbox = removeCheckbox;
-    }
-
-    _afterPreview() {
-      return () => {
-        this.constructor._showRemoveButton(
-          this.removeButton,
-          this.uploadButton
-        );
-        checkOffFileRemove(this.removeCheckbox);
-      };
-    }
-
-    _afterRemove() {
-      return () => {
-        this.constructor._showUploadButton(
-          this.removeButton,
-          this.uploadButton
-        );
-        checkOnFileRemove(this.removeCheckbox);
-      };
-    }
-  }
-
-  class PostPreviewer extends Previewer {
+  class PostPreviewer extends App.Previewer.BasePreviewer {
     initialize() {
       $("#modal-post").on("show.bs.modal", () => {
         if ($(".post-form__preview-image").length != 0) {
