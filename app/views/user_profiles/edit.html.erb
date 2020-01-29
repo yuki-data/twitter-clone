@@ -15,7 +15,7 @@
             <%= icon("far", "window-close", class: "post-form__thumbnail-icon--remove", id: "thumbnail-remove-icon") %>
             <%= image_tag "icons/user-account.jpeg", class: "post-form__thumbnail-image--default", id: "thumbnail-default" %>
             <% if @user_profile.thumbnail.present? %>
-              <%= image_tag @user_profile.thumbnail.to_s, class: "post-form__thumbnail-image--preview" id: "thumbnail-preview" %>
+              <%= image_tag @user_profile.thumbnail.to_s, class: "post-form__thumbnail-image--preview", id: "thumbnail-preview" %>
             <% end %>
           </div>
           <%= form.file_field :thumbnail, class: "post-form__form__content__image__field" %>
