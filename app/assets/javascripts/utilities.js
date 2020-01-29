@@ -83,6 +83,9 @@ App.Previewer = (function() {
       };
     }
 
+    /**
+     * 画像のアップロードイベントでプレビューを表示するというイベントをアップロードボタンにつける
+     */
     attachPreviewer() {
       this.constructor._attachPreviewer(
         this.uploadEvent,
@@ -92,6 +95,10 @@ App.Previewer = (function() {
         this._afterPreview()
       );
     }
+
+    /**
+     * 画像のプレビューを削除するイベントを削除ボタンに付ける
+     */
     attachPreviewRemover() {
       this.constructor._attachPreviewRemover(
         this.removeEvent,
@@ -180,11 +187,18 @@ App.Previewer = (function() {
   }
 
   class BasePreviewer extends ImagePreviewer {
+    /**
+     * @param {string} removeCheckbox - carrierwaveでの画像削除チェックボックスのセレクタ
+     * @param  {...any} args
+     */
     constructor(removeCheckbox, ...args) {
       super(...args);
       this.removeCheckbox = removeCheckbox;
     }
 
+    /**
+     * プレビューを出したら、削除ボタンを表示して削除チェックボックスをオフにする
+     */
     _afterPreview() {
       return () => {
         this.constructor._showRemoveButton(
@@ -195,6 +209,9 @@ App.Previewer = (function() {
       };
     }
 
+    /**
+     * プレビューを削除したらアップロードボタンを表示してオンにする
+     */
     _afterRemove() {
       return () => {
         this.constructor._showUploadButton(
