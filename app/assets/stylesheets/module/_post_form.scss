@@ -63,16 +63,18 @@
     border-radius: 50%;
     background-color: grey;
     position: relative;
-    // text-align: center;
   }
   &__thumbnail-icon {
+    color: white;
     line-height: 100px;
+    width: 100px;
     position: absolute;
     z-index: 2;
     top: 0;
     left: 0;
   }
   &__thumbnail-preview {
+    background-color: white;
     width: 100px;
     height: 100px;
     border-radius: 50%;
@@ -80,5 +82,6 @@
     z-index: 1;
     top: 0;
     left: 0;
+    filter: opacity(50%);
   }
 }
