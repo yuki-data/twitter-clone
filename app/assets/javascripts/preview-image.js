@@ -10,15 +10,20 @@ $(document).on("turbolinks:load", function() {
     return template;
   }
 
-  function checkOnFileRemove() {
-    $("#post_remove_image").prop("checked", true);
+  function checkOnFileRemove(removeCheckbox) {
+    $(removeCheckbox).prop("checked", true);
   }
 
-  function checkOffFileRemove() {
-    $("#post_remove_image").prop("checked", false);
+  function checkOffFileRemove(removeCheckbox) {
+    $(removeCheckbox).prop("checked", false);
   }
 
   class PostPreviewer extends App.Previewer.ImagePreviewer {
+    constructor(removeCheckbox, ...args) {
+      super(...args);
+      this.removeCheckbox = removeCheckbox;
+    }
+
     initialize() {
       $("#modal-post").on("show.bs.modal", () => {
         if ($(".post-form__preview-image").length != 0) {
@@ -41,7 +46,7 @@ $(document).on("turbolinks:load", function() {
           this.removeButton,
           this.uploadButton
         );
-        checkOffFileRemove();
+        checkOffFileRemove(this.removeCheckbox);
       };
     }
 
@@ -51,12 +56,13 @@ $(document).on("turbolinks:load", function() {
           this.removeButton,
           this.uploadButton
         );
-        checkOnFileRemove();
+        checkOnFileRemove(this.removeCheckbox);
       };
     }
   }
 
   var imagePreviewer = new PostPreviewer(
+    "#post_remove_image",
     "#remove-preview-button",
     "#upload-icon",
     "#post_image",
