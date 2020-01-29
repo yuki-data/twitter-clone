@@ -62,8 +62,23 @@
     height: 100px;
     border-radius: 50%;
     background-color: grey;
+    position: relative;
+    // text-align: center;
   }
   &__thumbnail-icon {
     line-height: 100px;
+    position: absolute;
+    z-index: 2;
+    top: 0;
+    left: 0;
+  }
+  &__thumbnail-preview {
+    width: 100px;
+    height: 100px;
+    border-radius: 50%;
+    position: absolute;
+    z-index: 1;
+    top: 0;
+    left: 0;
   }
 }
