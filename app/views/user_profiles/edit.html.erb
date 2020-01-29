@@ -10,10 +10,10 @@
       <%= form.text_area :profile, rows: 3, class: "form-control post-form__form__content__text", placeholder: "プロフィール" %>
       <div class="post-form__thumbnail-section">
         <%= form.label :thumbnail, class: "post-form__form__content__image" do%>
-          <div class="post-form__thumbnail-blank">
+          <div class="post-form__thumbnail-container">
             <%= icon("fas", "camera", class: "post-form__thumbnail-icon") %>
-            <%= image_tag "icons/user-account.jpeg", class: "post-form__thumbnail-default" %>
-            <%= image_tag @user_profile.thumbnail.to_s, class: "post-form__thumbnail-preview" %>
+            <%= image_tag "icons/user-account.jpeg", class: "post-form__thumbnail-image--default" %>
+            <%#= image_tag @user_profile.thumbnail.to_s, class: "post-form__thumbnail-image--preview" %>
           </div>
           <%= form.file_field :thumbnail, class: "post-form__form__content__image__field" %>
         <% end %>
