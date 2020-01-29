@@ -58,25 +58,35 @@
     text-align: center;
   }
   &__thumbnail-container {
-    width: 100px;
-    height: 100px;
+    width: 160px;
+    height: 160px;
     border-radius: 50%;
     background-color: grey;
     position: relative;
   }
-  &__thumbnail-icon {
-    color: white;
-    line-height: 100px;
-    width: 100px;
+
+  %thumbnail-icon {
+    line-height: 160px;
+    width: 160px;
     position: absolute;
     z-index: 2;
     top: 0;
     left: 0;
+    color: white;
   }
+  &__thumbnail-icon {
+    &--upload {
+      @extend %thumbnail-icon;
+    }
+    &--remove {
+      @extend %thumbnail-icon;
+    }
+  }
+
   %__thumbnail-image {
     background-color: white;
-    width: 100px;
-    height: 100px;
+    width: 160px;
+    height: 160px;
     border-radius: 50%;
     position: absolute;
     z-index: 1;
