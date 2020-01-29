@@ -14,7 +14,9 @@
             <%= icon("fas", "camera", class: "post-form__thumbnail-icon--upload") %>
             <%= icon("far", "window-close", class: "post-form__thumbnail-icon--remove") %>
             <%= image_tag "icons/user-account.jpeg", class: "post-form__thumbnail-image--default" %>
-            <%= image_tag @user_profile.thumbnail.to_s, class: "post-form__thumbnail-image--preview" %>
+            <% if @user_profile.thumbnail.present? %>
+              <%= image_tag @user_profile.thumbnail.to_s, class: "post-form__thumbnail-image--preview" %>
+            <% end %>
           </div>
           <%= form.file_field :thumbnail, class: "post-form__form__content__image__field" %>
         <% end %>
