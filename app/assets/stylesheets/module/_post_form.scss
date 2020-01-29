@@ -53,4 +53,17 @@
     display: flex;
     justify-content: center;
   }
+  &__thumbnail-section {
+    padding: 10px 0;
+    text-align: center;
+  }
+  &__thumbnail-blank {
+    width: 100px;
+    height: 100px;
+    border-radius: 50%;
+    background-color: grey;
+  }
+  &__thumbnail-icon {
+    line-height: 100px;
+  }
 }
