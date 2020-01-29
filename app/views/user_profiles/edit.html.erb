@@ -18,4 +18,19 @@
       <% end %>
     </div>
   <% end %>
+
+  <div class="post-form-preview">
+    <% if @user_profile.thumbnail.present? %>
+      <div class="post-form__preview-image">
+        <%= image_tag @user_profile.thumbnail.url %>
+      </div>
+    <% end %>
+  </div>
+  <div class="post-form-preview">
+    <% if @user_profile.bg_image.present? %>
+      <div class="post-form__preview-image">
+        <%= image_tag @user_profile.bg_image.url %>
+      </div>
+    <% end %>
+  </div>
 </div>
