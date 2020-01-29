@@ -1,4 +1,5 @@
 var $;
+var App;
 $(document).on("turbolinks:load", function() {
   function buildPreviewItem(src, alt) {
     var template = `
@@ -9,16 +10,6 @@ $(document).on("turbolinks:load", function() {
     return template;
   }
 
-  function showRemoveButton() {
-    $("#upload-icon").hide();
-    $("#remove-preview-button").show();
-  }
-
-  function showUploadIcon() {
-    $("#upload-icon").show();
-    $("#remove-preview-button").hide();
-  }
-
   function checkOnFileRemove() {
     $("#post_remove_image").prop("checked", true);
   }
@@ -27,31 +18,56 @@ $(document).on("turbolinks:load", function() {
     $("#post_remove_image").prop("checked", false);
   }
 
-  $("#modal-post").on("show.bs.modal", function() {
-    if ($(".post-form__preview-image").length != 0) {
-      showRemoveButton();
-    } else {
-      showUploadIcon();
+  class PostPreviewer extends App.Previewer.ImagePreviewer {
+    initialize() {
+      $("#modal-post").on("show.bs.modal", () => {
+        if ($(".post-form__preview-image").length != 0) {
+          this.constructor._showRemoveButton(
+            "#remove-preview-button",
+            "#upload-icon"
+          );
+        } else {
+          this.constructor._showUploadButton(
+            "#remove-preview-button",
+            "#upload-icon"
+          );
+        }
+      });
     }
-  });
 
-  $("body").on("click", "#remove-preview-button", function() {
-    $("#post_image").val("");
-    $(".post-form__preview-image").remove();
-    showUploadIcon();
-    checkOnFileRemove();
-  });
+    _afterPreview() {
+      return () => {
+        this.constructor._showRemoveButton(
+          this.removeButton,
+          this.uploadButton
+        );
+        checkOffFileRemove();
+      };
+    }
 
-  $("body").on("change", "#post_image", function() {
-    var file = this.files[0];
-    var fileReader = new FileReader();
+    _afterRemove() {
+      return () => {
+        this.constructor._showUploadButton(
+          this.removeButton,
+          this.uploadButton
+        );
+        checkOnFileRemove();
+      };
+    }
+  }
 
-    fileReader.onload = function(e) {
-      var html = buildPreviewItem(e.target.result, file.name);
-      $(".post-form-preview").prepend(html);
-    };
-    fileReader.readAsDataURL(file);
-    showRemoveButton();
-    checkOffFileRemove();
-  });
+  var imagePreviewer = new PostPreviewer(
+    "#remove-preview-button",
+    "#upload-icon",
+    "#post_image",
+    "change",
+    "click",
+    ".post-form__preview-image",
+    ".post-form-preview",
+    buildPreviewItem
+  );
+
+  imagePreviewer.initialize();
+  imagePreviewer.attachPreviewer();
+  imagePreviewer.attachPreviewRemover();
 });
