@@ -12,6 +12,7 @@
         <%= form.label :thumbnail, class: "post-form__form__content__image" do%>
           <div class="post-form__thumbnail-blank">
             <%= icon("fas", "camera", class: "post-form__thumbnail-icon") %>
+            <%= image_tag "icons/user-account.jpeg", class: "post-form__thumbnail-default" %>
             <%= image_tag @user_profile.thumbnail.to_s, class: "post-form__thumbnail-preview" %>
           </div>
           <%= form.file_field :thumbnail, class: "post-form__form__content__image__field" %>
