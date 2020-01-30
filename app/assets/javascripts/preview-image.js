@@ -35,9 +35,7 @@ $(document).on("turbolinks:load", function() {
     }
   }
 
-  class ThumbnailPreviewer extends App.Previewer.BasePreviewer {}
-
-  var thumbnailPreviewer = new ThumbnailPreviewer(
+  var thumbnailPreviewer = new App.Previewer.BasePreviewer(
     "#user_profile_remove_thumbnail",
     "#thumbnail-remove-icon",
     "#thumbnail-upload-icon, .post-form__thumbnail-label",
