@@ -45,7 +45,7 @@ $(document).on("turbolinks:load", function() {
     "change",
     "click",
     "#thumbnail-preview",
-    ".post-form__thumbnail-label",
+    ".post-form__thumbnail-container",
     buildPreviewThumbnail,
     () => {
       return $("#thumbnail-preview").length != 0;
