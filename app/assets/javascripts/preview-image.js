@@ -12,7 +12,7 @@ $(document).on("turbolinks:load", function() {
 
   function buildPreviewThumbnail(src, alt) {
     var template = `
-    <img alt="${alt}" src="${src}" class: "post-form__thumbnail-image--preview" id: "thumbnail-preview">
+    <img alt="${alt}" src="${src}" class="post-form__thumbnail-image--preview" id="thumbnail-preview">
     `;
     return template;
   }
@@ -45,7 +45,7 @@ $(document).on("turbolinks:load", function() {
     "change",
     "click",
     "#thumbnail-preview",
-    ".post-form__thumbnail-container",
+    ".post-form__thumbnail-label",
     buildPreviewThumbnail,
     () => {
       return $("#thumbnail-preview").length != 0;
