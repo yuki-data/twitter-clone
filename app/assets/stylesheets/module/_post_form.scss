@@ -92,13 +92,13 @@
     height: 160px;
     border-radius: 50%;
     filter: contrast(50%);
-    &:hover {
-      cursor: pointer;
-    }
   }
   &__thumbnail-image {
     &--default {
       @extend %__thumbnail-image;
+      &:hover {
+        cursor: pointer;
+      }
     }
     &--preview {
       @extend %__thumbnail-image;
