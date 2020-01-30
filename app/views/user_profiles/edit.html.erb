@@ -30,11 +30,6 @@
   <% end %>
 
   <div class="post-form-preview">
-      <div class="post-form__preview-image">
-        <%= image_tag @user_profile.thumbnail.to_s %>
-      </div>
-  </div>
-  <div class="post-form-preview">
     <% if @user_profile.bg_image.present? %>
       <div class="post-form__preview-image">
         <%= image_tag @user_profile.bg_image.to_s %>
