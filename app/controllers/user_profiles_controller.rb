@@ -28,6 +28,8 @@ class UserProfilesController < ApplicationController
   end
 
   def user_profile_params
-    params.require(:user_profile).permit(:profile, :thumbnail, :bg_image)
+    params.require(:user_profile).permit(
+      :profile, :thumbnail, :bg_image, :remove_thumbnail
+    )
   end
 end
