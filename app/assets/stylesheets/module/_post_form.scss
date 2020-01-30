@@ -71,16 +71,16 @@
     position: absolute;
     z-index: 2;
     top: 0;
-    left: 0;
   }
   &__thumbnail-icon {
     &--upload {
       color: white;
       @extend %thumbnail-icon;
       line-height: 160px;
-      width: 160px;
+      left: 70px;
     }
     &--remove {
+      left: 0;
       color: grey;
       @extend %thumbnail-icon;
     }
@@ -91,10 +91,6 @@
     width: 160px;
     height: 160px;
     border-radius: 50%;
-    position: absolute;
-    z-index: 1;
-    top: 0;
-    left: 0;
     filter: contrast(50%);
     &:hover {
       cursor: pointer;
