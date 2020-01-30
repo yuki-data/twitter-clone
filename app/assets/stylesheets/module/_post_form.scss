@@ -66,19 +66,20 @@
   }
 
   %thumbnail-icon {
-    line-height: 160px;
-    width: 160px;
     position: absolute;
     z-index: 2;
     top: 0;
     left: 0;
-    color: white;
   }
   &__thumbnail-icon {
     &--upload {
+      color: white;
       @extend %thumbnail-icon;
+      line-height: 160px;
+      width: 160px;
     }
     &--remove {
+      color: grey;
       @extend %thumbnail-icon;
     }
   }
