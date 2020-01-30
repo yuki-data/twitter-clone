@@ -9,20 +9,19 @@
     <div class="post-form__form__content">
       <%= form.text_area :profile, rows: 3, class: "form-control post-form__form__content__text", placeholder: "プロフィール" %>
       <div class="post-form__thumbnail-section">
-        <%= form.label :thumbnail, class: "post-form__form__content__image" do%>
-          <div class="post-form__thumbnail-container">
-            <%= icon("fas", "camera", class: "post-form__thumbnail-icon--upload", id: "thumbnail-upload-icon") %>
-            <%= icon("far", "window-close", class: "post-form__thumbnail-icon--remove", id: "thumbnail-remove-icon") %>
+        <div class="post-form__thumbnail-container">
+          <%= icon("fas", "camera", class: "post-form__thumbnail-icon--upload", id: "thumbnail-upload-icon") %>
+          <%= icon("far", "window-close", class: "post-form__thumbnail-icon--remove", id: "thumbnail-remove-icon") %>
+          <%= form.label :thumbnail, class: "post-form__form__content__image" do %>
             <%= image_tag "icons/user-account.jpeg", class: "post-form__thumbnail-image--default", id: "thumbnail-default" %>
             <% if @user_profile.thumbnail.present? %>
               <%= image_tag @user_profile.thumbnail.to_s, class: "post-form__thumbnail-image--preview", id: "thumbnail-preview" %>
             <% end %>
-          </div>
-          <%= form.file_field :thumbnail, class: "post-form__form__content__image__field" %>
-          <%= form.check_box :remove_thumbnail, class: "post-form__form__content__image__field" %>
-        <% end %>
+          <% end %>
+        </div>
+        <%= form.file_field :thumbnail, class: "post-form__form__content__image__field" %>
+        <%= form.check_box :remove_thumbnail, class: "post-form__form__content__image__field" %>
       </div>
-
       <%= form.label :bg_image, class: "post-form__form__content__image" do%>
         <%= icon("fas", "image") %>
         <%= form.file_field :bg_image, class: "post-form__form__content__image__field" %>
