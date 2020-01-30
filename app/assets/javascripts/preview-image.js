@@ -10,6 +10,13 @@ $(document).on("turbolinks:load", function() {
     return template;
   }
 
+  function buildPreviewThumbnail(src, alt) {
+    var template = `
+    <img alt="${alt}" src="${src}" class: "post-form__thumbnail-image--preview" id: "thumbnail-preview">
+    `;
+    return template;
+  }
+
   class PostPreviewer extends App.Previewer.BasePreviewer {
     initialize() {
       $("#modal-post").on("show.bs.modal", () => {
@@ -27,6 +34,27 @@ $(document).on("turbolinks:load", function() {
       });
     }
   }
+
+  class ThumbnailPreviewer extends App.Previewer.BasePreviewer {}
+
+  var thumbnailPreviewer = new ThumbnailPreviewer(
+    "#user_profile_remove_thumbnail",
+    "#thumbnail-remove-icon",
+    "#thumbnail-upload-icon",
+    "#user_profile_thumbnail",
+    "change",
+    "click",
+    "#thumbnail-preview",
+    ".post-form__thumbnail-container",
+    buildPreviewThumbnail,
+    () => {
+      return $("#thumbnail-preview").length != 0;
+    }
+  );
+
+  thumbnailPreviewer.initialize();
+  thumbnailPreviewer.attachPreviewer();
+  thumbnailPreviewer.attachPreviewRemover();
 
   var imagePreviewer = new PostPreviewer(
     "#post_remove_image",
