@@ -178,14 +178,6 @@ App.Previewer = (function() {
     }
   }
 
-  function checkOnFileRemove(removeCheckbox) {
-    $(removeCheckbox).prop("checked", true);
-  }
-
-  function checkOffFileRemove(removeCheckbox) {
-    $(removeCheckbox).prop("checked", false);
-  }
-
   class BasePreviewer extends ImagePreviewer {
     /**
      * @param {string} removeCheckbox - carrierwaveでの画像削除チェックボックスのセレクタ
@@ -205,7 +197,7 @@ App.Previewer = (function() {
           this.removeButton,
           this.uploadButton
         );
-        checkOffFileRemove(this.removeCheckbox);
+        this.constructor._checkOffFileRemove(this.removeCheckbox);
       };
     }
 
@@ -218,8 +210,16 @@ App.Previewer = (function() {
           this.removeButton,
           this.uploadButton
         );
-        checkOnFileRemove(this.removeCheckbox);
+        this.constructor._checkOnFileRemove(this.removeCheckbox);
       };
+    }
+
+    static _checkOnFileRemove(removeCheckbox) {
+      $(removeCheckbox).prop("checked", true);
+    }
+
+    static _checkOffFileRemove(removeCheckbox) {
+      $(removeCheckbox).prop("checked", false);
     }
   }
 
