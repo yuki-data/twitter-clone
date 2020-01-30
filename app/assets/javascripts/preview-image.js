@@ -40,7 +40,7 @@ $(document).on("turbolinks:load", function() {
   var thumbnailPreviewer = new ThumbnailPreviewer(
     "#user_profile_remove_thumbnail",
     "#thumbnail-remove-icon",
-    "#thumbnail-upload-icon",
+    "#thumbnail-upload-icon, #thumbnail-default",
     "#user_profile_thumbnail",
     "change",
     "click",
