@@ -17,6 +17,13 @@ $(document).on("turbolinks:load", function() {
     return template;
   }
 
+  function buildPreviewBackground(src, alt) {
+    var template = `
+    <div class="post-form__bg-image" style="background-image: url(${src})" id="background-preview" ></div>
+    `;
+    return template;
+  }
+
   class PostPreviewer extends App.Previewer.BasePreviewer {
     initialize() {
       $("#modal-post").on("show.bs.modal", () => {
@@ -53,6 +60,25 @@ $(document).on("turbolinks:load", function() {
   thumbnailPreviewer.initialize();
   thumbnailPreviewer.attachPreviewer();
   thumbnailPreviewer.attachPreviewRemover();
+
+  var bgImagePreviewer = new App.Previewer.BasePreviewer(
+    "#user_profile_remove_bg_image",
+    "#background-remove-icon",
+    "#background-upload-icon",
+    "#user_profile_bg_image",
+    "change",
+    "click",
+    "#background-preview",
+    "#bg-image-container",
+    buildPreviewBackground,
+    () => {
+      return $("#background-preview").length != 0;
+    }
+  );
+
+  bgImagePreviewer.initialize();
+  bgImagePreviewer.attachPreviewer();
+  bgImagePreviewer.attachPreviewRemover();
 
   var imagePreviewer = new PostPreviewer(
     "#post_remove_image",
