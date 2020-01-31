@@ -118,6 +118,8 @@
   }
 
   &__bg-image-icon {
+    width: 3.5rem;
+    height: 3.5rem;
     color: white;
     z-index: 2;
     position: absolute;
@@ -126,8 +128,12 @@
     margin: auto;
     transform: translate(-50%, -50%);
     font-size: 2rem;
+    line-height: 3.5rem;
     &:hover {
       cursor: pointer;
+    }
+    i {
+      line-height: 3.5rem;
     }
   }
 }
