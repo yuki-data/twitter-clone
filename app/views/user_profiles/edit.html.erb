@@ -32,17 +32,9 @@
             <div class="post-form__bg-image" style="<%= "background-image: url(#{@user_profile.bg_image.to_s})" %>" id="background-preview" ></div>
           <% end %>
         </div>
-        <%= form.file_field :bg_image, class: "_post-form__form__content__image__field" %>
-        <%= form.check_box :remove_bg_image, class: "_post-form__form__content__image__field" %>
+        <%= form.file_field :bg_image, class: "post-form__form__content__image__field" %>
+        <%= form.check_box :remove_bg_image, class: "post-form__form__content__image__field" %>
       </section>
     </div>
   <% end %>
-
-  <div class="post-form-preview">
-    <% if @user_profile.bg_image.present? %>
-      <div class="post-form__preview-image">
-        <%= image_tag @user_profile.bg_image.to_s %>
-      </div>
-    <% end %>
-  </div>
 </div>
