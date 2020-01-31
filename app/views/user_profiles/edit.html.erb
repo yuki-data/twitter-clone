@@ -8,7 +8,7 @@
     </div>
     <div class="post-form__form__content">
       <%= form.text_area :profile, rows: 3, class: "form-control post-form__form__content__text", placeholder: "プロフィール" %>
-      <section class="post-form__thumbnail-section">
+      <section class="post-form__profile-image-section">
         <div class="post-form__thumbnail-container">
           <%= icon("fas", "camera", class: "post-form__thumbnail-icon--upload", id: "thumbnail-upload-icon") %>
           <%= icon("far", "window-close", class: "post-form__thumbnail-icon--remove", id: "thumbnail-remove-icon") %>
@@ -22,7 +22,7 @@
         <%= form.file_field :thumbnail, class: "post-form__form__content__image__field" %>
         <%= form.check_box :remove_thumbnail, class: "post-form__form__content__image__field" %>
       </section>
-      <section class="post-form__thumbnail-section">
+      <section class="post-form__profile-image-section">
         <div class="post-form__thumbnail-container">
           <%= icon("fas", "camera", class: "post-form__thumbnail-icon--upload", id: "thumbnail-upload-icon") %>
           <%= icon("far", "window-close", class: "post-form__thumbnail-icon--remove", id: "thumbnail-remove-icon") %>
