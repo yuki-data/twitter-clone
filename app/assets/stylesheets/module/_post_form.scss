@@ -66,16 +66,6 @@
     position: relative;
   }
 
-  &__bg-image-container {
-    height: 200px;
-    background-color: #e1d1d1;
-  }
-  &__bg-image {
-    height: 200px;
-    width: 100%;
-    background-size: cover;
-  }
-
   %thumbnail-icon {
     font-size: 1.5rem;
     position: absolute;
@@ -113,5 +103,14 @@
     &--preview {
       @extend %__thumbnail-image;
     }
+  }
+  &__bg-image-container {
+    height: 200px;
+    background-color: #e1d1d1;
+  }
+  &__bg-image {
+    height: 200px;
+    width: 100%;
+    background-size: cover;
   }
 }
