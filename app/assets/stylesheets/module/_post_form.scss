@@ -91,7 +91,7 @@
     width: 160px;
     height: 160px;
     border-radius: 50%;
-    filter: contrast(50%);
+    filter: contrast(80%);
   }
   &__thumbnail-image {
     &--default {
@@ -114,9 +114,11 @@
     height: 200px;
     width: 100%;
     background-size: cover;
+    filter: contrast(80%);
   }
 
   &__bg-image-icon {
+    color: white;
     z-index: 2;
     position: absolute;
     top: 50%;
