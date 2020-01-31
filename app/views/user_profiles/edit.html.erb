@@ -24,8 +24,10 @@
       </section>
       <section class="post-form__profile-image-section">
         <div class="post-form__bg-image-container">
-          <%= icon("fas", "camera", class: "post-form__bg-icon--upload") %>
-          <%= icon("far", "window-close", class: "post-form__bg-icon--remove") %>
+          <%= icon("far", "window-close", class: "post-form__bg-image-icon") %>
+          <%= form.label :bg_image, class: "post-form__bg-image-icon" do %>
+            <%= icon("fas", "camera") %>
+          <% end %>
           <% if @user_profile.bg_image.present? %>
             <div class="post-form__bg-image" style="<%= "background-image: url(#{@user_profile.bg_image.to_s})" %>" ></div>
           <% end %>
