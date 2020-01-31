@@ -23,14 +23,9 @@
         <%= form.check_box :remove_thumbnail, class: "post-form__form__content__image__field" %>
       </section>
       <section class="post-form__profile-image-section">
-        <div class="post-form__thumbnail-container">
-          <%= icon("fas", "camera", class: "post-form__thumbnail-icon--upload", id: "thumbnail-upload-icon") %>
-          <%= icon("far", "window-close", class: "post-form__thumbnail-icon--remove", id: "thumbnail-remove-icon") %>
-          <%= form.label :bg_image, class: "post-form__thumbnail-label" do %>
-            <%= image_tag "icons/user-account.jpeg", class: "post-form__thumbnail-image--default", id: "thumbnail-default" %>
-          <% end %>
+        <div class="post-form__bg-image-container">
           <% if @user_profile.bg_image.present? %>
-            <%= image_tag @user_profile.bg_image.to_s, class: "post-form__thumbnail-image--preview", id: "thumbnail-preview" %>
+            <div class="post-form__bg-image" style="<%= "background-image: url(#{@user_profile.bg_image.to_s})" %>" ></div>
           <% end %>
         </div>
         <%= form.file_field :bg_image, class: "_post-form__form__content__image__field" %>
