@@ -107,10 +107,29 @@
   &__bg-image-container {
     height: 200px;
     background-color: #e1d1d1;
+    position: relative;
   }
   &__bg-image {
     height: 200px;
     width: 100%;
     background-size: cover;
+  }
+  &__bg-icon--upload {
+    z-index: 2;
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    margin: auto;
+    transform: translate(-50%, -50%);
+    font-size: 2rem;
+  }
+  &__bg-icon--remove {
+    z-index: 2;
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    margin: auto;
+    transform: translate(-50%, -50%);
+    font-size: 2rem;
   }
 }
