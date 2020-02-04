@@ -1,0 +1,29 @@
+<div class="header__user-info">
+  <div class="header__user-info__inner">
+    <div class="header__user-info__inner__user-name">
+      <%= link_to @user.name, user_path(@user.id) %>
+    </div>
+    <ul class="header__user-info__inner__menu">
+      <li class="header__user-info__inner__menu__item">
+        <%= link_to user_bookmarks_path(@user.id), class: "header__user-info__inner__menu__item__bookmark#{active_tab?("bookmarks")}" do %>
+          いいね： <%= @user.bookmarks.count %>
+        <% end %>
+      </li>
+      <li class="header__user-info__inner__menu__item">
+        <%= link_to followers_user_relationships_path(@user.id), class: "header__user-info__inner__menu__item__bookmark#{active_tab?("relationships", "followers")}" do %>
+          フォロワー: <%= @user.followers.count %>
+        <% end %>
+      </li>
+      <li class="header__user-info__inner__menu__item">
+        <%= link_to followings_user_relationships_path(@user.id), class: "header__user-info__inner__menu__item__bookmark#{active_tab?("relationships", "followings")}" do %>
+          フォロー: <%= @user.followings.count %>
+        <% end %>
+      </li>
+      <li class="header__user-info__inner__menu__item" data-follow-button="true", data-user-id="<%= @user.id %>">
+        <% if user_signed_in? && current_user != @user %>
+          <%= render partial: "shared/follow_button", locals: { follower: current_user, followee: @user } %>
+        <% end %>
+      </li>
+    </ul>
+  </div>
+</div>
