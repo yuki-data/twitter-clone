@@ -1,0 +1,14 @@
+.mypage-profile {
+  height: 300px;
+  &__image-block {
+    margin: 0 auto;
+    height: 100%;
+    max-width: 32rem * 1.5;
+  }
+  &__bg-image {
+    height: 100%;
+    max-width: 100%;
+    background-size: cover;
+    background-position: center;
+  }
+}
