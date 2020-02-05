@@ -10,8 +10,13 @@
     <% end %>
   </section>
   <section class="mypage-profile__section--text">
-    <% if @user.user_profile.profile.present? %>
-      <%= simple_format(@user.user_profile.profile) %>
-    <% end %>
+    <div class="mypage-profile__edit-btn">
+      <button type="button" class="btn btn-outline-primary">プロフィール編集</button>
+    </div>
+    <div class="mypage-profile__profile">
+      <% if @user.user_profile.profile.present? %>
+        <%= simple_format(@user.user_profile.profile) %>
+      <% end %>
+    </div>
   </section>
 </div>
