@@ -3,5 +3,8 @@
     <% if @user.user_profile.bg_image.present? %>
       <div style="<%= "background-image: url(#{@user.user_profile.bg_image.to_s})" %>" class="mypage-profile__bg-image" ></div>
     <% end %>
+    <% if @user.user_profile.thumbnail.present? %>
+      <%= image_tag @user.user_profile.thumbnail.to_s %>
+    <% end %>
   </div>
 </div>
