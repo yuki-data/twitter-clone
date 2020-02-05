@@ -4,4 +4,8 @@ module ApplicationHelper
     return if action_name && action_name != params[:action]
     "--highlight"
   end
+
+  def show_profile?
+    params[:controller] == "users" && params[:action] == "show"
+  end
 end
