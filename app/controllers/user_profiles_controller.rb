@@ -7,7 +7,7 @@ class UserProfilesController < ApplicationController
   def update
     respond_to do |format|
       if @user_profile.update(user_profile_params)
-        format.html {redirect_to edit_user_profiles_path, notice: "プロフィールを更新しました"}
+        format.html {redirect_to user_path(current_user), notice: "プロフィールを更新しました"}
         # format.js { @status = "success"}
       else
         format.html do
