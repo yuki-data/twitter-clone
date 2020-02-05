@@ -1,4 +1,5 @@
 .mypage-profile {
+  background-color: #ededed;
   %section {
     margin: 0 auto;
     max-width: 32rem * 1.5;
@@ -12,6 +13,7 @@
     &--text {
       @extend %section;
       padding: 1rem;
+      background-color: white;
     }
   }
   &__bg-image {
