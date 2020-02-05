@@ -1,7 +1,7 @@
 <% if @status == 'success' %>
 var current_post = $(".posts__card[data-post-id='<%= @post.id %>']");
 var target_bookmark = current_post.find(".posts__card__bottom");
-target_bookmark.replaceWith("<%= j(render("shared/post_card_bottom", post: @post)) %>");
+target_bookmark.replaceWith("<%= j(render("shared/card/post_card_bottom", post: @post)) %>");
 <%  elsif @status == 'fail' %>
 alert('送信に失敗しました');
 <% end %>
