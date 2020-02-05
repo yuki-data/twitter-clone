@@ -2,6 +2,6 @@
 <%= render partial: "shared/mypage/header_spacing" %>
 <%= render "shared/mypage/user_profile" %>
 <div class="posts posts-mypage">
-  <%= render partial: "shared/card/post_card", collection: @posts, as: :post %>
+  <%= render partial: item_template, collection: items, as: symbol %>
 </div>
-<%= paginate(@posts) %>
+<%= paginate(items) %>
