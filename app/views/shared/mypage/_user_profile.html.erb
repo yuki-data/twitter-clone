@@ -1,7 +1,7 @@
-<section class="post-form__profile-image-section">
-  <div class="post-form__bg-image-container" id="bg-image-container">
+<div class="mypage-profile">
+  <div class="mypage-profile__image-block">
     <% if @user.user_profile.bg_image.present? %>
-      <div class="post-form__bg-image" style="<%= "background-image: url(#{@user.user_profile.bg_image.to_s})" %>" id="background-preview" ></div>
+      <div style="<%= "background-image: url(#{@user.user_profile.bg_image.to_s})" %>" class="mypage-profile__bg-image" ></div>
     <% end %>
   </div>
-</section>
+</div>
