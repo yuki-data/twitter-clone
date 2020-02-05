@@ -1,10 +1,15 @@
 <div class="mypage-profile">
-  <div class="mypage-profile__image-block">
+  <section class="mypage-profile__section--image">
     <% if @user.user_profile.bg_image.present? %>
       <div style="<%= "background-image: url(#{@user.user_profile.bg_image.to_s})" %>" class="mypage-profile__bg-image" ></div>
     <% end %>
     <% if @user.user_profile.thumbnail.present? %>
       <%= image_tag @user.user_profile.thumbnail.to_s, class: "mypage-profile__thumbnail" %>
     <% end %>
-  </div>
+  </section>
+  <section class="mypage-profile__section--text">
+    <% if @user.user_profile.profile.present? %>
+      <%= simple_format(@user.user_profile.profile) %>
+    <% end %>
+  </section>
 </div>
