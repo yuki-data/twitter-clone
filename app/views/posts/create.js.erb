@@ -1,5 +1,5 @@
 <% if @status == 'success' %>
-$(".posts").prepend("<%= j(render("shared/post_card", post: @post_latest)) %>");
+$(".posts").prepend("<%= j(render("shared/card/post_card", post: @post_latest)) %>");
 <%  elsif @status == 'fail' %>
 alert("<%= j(@error_message) %>");
 <% end %>

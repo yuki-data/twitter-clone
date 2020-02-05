@@ -1,0 +1,39 @@
+.mypage-profile {
+  %section {
+    margin: 0 auto;
+    max-width: 32rem;
+  }
+  &__section {
+    &--image {
+      @extend %section;
+      height: 300px;
+      position: relative;
+      background-color: #e0cece;
+    }
+    &--text {
+      @extend %section;
+      padding: 1rem;
+      background-color: white;
+    }
+  }
+  &__bg-image {
+    height: 100%;
+    max-width: 100%;
+    background-size: cover;
+    background-position: center;
+  }
+  &__thumbnail {
+    background-color: white;
+    width: 160px;
+    height: 160px;
+    border-radius: 50%;
+    position: absolute;
+    bottom: 0;
+    left: 0;
+    background-color: white;
+  }
+  &__edit-btn {
+    text-align: end;
+    margin-bottom: 1rem;
+  }
+}

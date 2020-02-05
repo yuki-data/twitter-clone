@@ -1,0 +1,22 @@
+<div class="mypage-profile">
+  <section class="mypage-profile__section--image">
+    <% if @user.user_profile.bg_image.present? %>
+      <div style="<%= "background-image: url(#{@user.user_profile.bg_image.to_s})" %>" class="mypage-profile__bg-image" ></div>
+    <% end %>
+    <% if @user.user_profile.thumbnail.present? %>
+      <%= image_tag @user.user_profile.thumbnail.to_s, class: "mypage-profile__thumbnail" %>
+    <% else %>
+      <%= image_tag "icons/user-account.jpeg", class: "mypage-profile__thumbnail" %>
+    <% end %>
+  </section>
+  <section class="mypage-profile__section--text">
+    <div class="mypage-profile__edit-btn">
+      <%= link_to "プロフィール編集", edit_user_profiles_path, class: "btn btn-outline-primary" %>
+    </div>
+    <div class="mypage-profile__profile">
+      <% if @user.user_profile.profile.present? %>
+        <%= simple_format(@user.user_profile.profile) %>
+      <% end %>
+    </div>
+  </section>
+</div>

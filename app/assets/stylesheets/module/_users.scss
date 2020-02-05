@@ -1,7 +1,10 @@
 .header {
+  &__navbar-space {
+    height: $navbar-height + $mypage-header-height;
+  }
   &__user-info {
     height: 5rem;
-    background-color: rgb(239, 239, 245);
+    background-color: #efeff5;
     display: flex;
     justify-content: center;
     align-items: center;

@@ -1,6 +1,6 @@
 <% if @status == 'success' %>
 var current_post = $(".posts__card[data-post-id='<%= @post.id %>']");
-current_post.replaceWith("<%= j(render("shared/post_card", post: @post)) %>")
+current_post.replaceWith("<%= j(render("shared/card/post_card", post: @post)) %>")
 <%  elsif @status == 'fail' %>
 alert("<%= j(@error_message) %>");
 <% end %>

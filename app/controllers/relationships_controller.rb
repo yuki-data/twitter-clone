@@ -9,6 +9,7 @@ class RelationshipsController < ApplicationController
 
   def followings
     @users = pagenate(@user.followings)
+    render :followers
   end
 
   def create

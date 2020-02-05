@@ -4,6 +4,7 @@ class BookmarksController < ApplicationController
   def index
     @user = User.find(params[:user_id])
     @posts = @user.favposts.order(created_at: :desc).page(params[:page]).per(10)
+    render template: "users/show"
   end
 
   def create

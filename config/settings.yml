@@ -1,4 +1,13 @@
 carrierwave:
-  resize_limit_x: 400
-  resize_limit_y: 400
-  size_upper_limit: 500
+  post_image:
+    resize_limit_x: 400
+    resize_limit_y: 400
+    size_upper_limit: 500
+  profile_thumbnail:
+    resize_limit_x: 200
+    resize_limit_y: 200
+    size_upper_limit: 500
+  profile_background:
+    resize_limit_x: 960
+    resize_limit_y: 400
+    size_upper_limit: 500

@@ -1,18 +1,18 @@
 %post-form {
   display: flex;
-  justify-content: center;
+  flex-direction: column;
 }
 
 .post-form {
   @extend %post-form;
   padding: 1rem 1rem 0;
-  margin-top: $navbar-height;
+  margin: $navbar-height auto 0;
+  max-width: 32rem;
   &-modal {
     padding: 0.5rem 1rem 0;
     @extend %post-form;
   }
   &__form {
-    flex-basis: 32rem;
     &__content {
       &__image {
         font-size: 2rem;
@@ -47,10 +47,102 @@
   &__preview-image {
     padding: 5px;
     text-align: center;
+    margin: 0 auto;
+    max-width: 400px;
+    max-height: 400px;
+    img {
+      width: 100%;
+      height: 100%;
+    }
   }
   &__preview-menus {
     padding: 5px 0;
     display: flex;
     justify-content: center;
+  }
+  &__profile-image-section {
+    padding: 10px 0;
+    text-align: center;
+  }
+  &__thumbnail-container {
+    margin: 0 auto;
+    width: 160px;
+    height: 160px;
+    border-radius: 50%;
+    background-color: grey;
+    position: relative;
+  }
+
+  %thumbnail-icon {
+    font-size: 1.5rem;
+    position: absolute;
+    z-index: 2;
+    top: 0;
+  }
+  &__thumbnail-icon {
+    &--upload {
+      color: white;
+      @extend %thumbnail-icon;
+      line-height: 160px;
+      left: 70px;
+    }
+    &--remove {
+      left: 0;
+      color: grey;
+      @extend %thumbnail-icon;
+    }
+  }
+
+  %__thumbnail-image {
+    background-color: white;
+    width: 160px;
+    height: 160px;
+    border-radius: 50%;
+    filter: contrast(80%);
+  }
+  &__thumbnail-image {
+    &--default {
+      @extend %__thumbnail-image;
+      &:hover {
+        cursor: pointer;
+      }
+    }
+    &--preview {
+      @extend %__thumbnail-image;
+    }
+  }
+  &__bg-image-container {
+    height: 200px;
+    background-color: #e1d1d1;
+    position: relative;
+  }
+
+  &__bg-image {
+
+    height: 200px;
+    width: 100%;
+    background-size: cover;
+    background-position: center;
+    filter: brightness(70%);
+  }
+
+  &__bg-image-icon {
+    width: 3.5rem;
+    height: 3.5rem;
+    color: white;
+    z-index: 2;
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    margin: auto;
+    transform: translate(-50%, -50%);
+    font-size: 2rem;
+    line-height: 3.5rem;
+    &:hover {
+      cursor: pointer;
+    }
+    i {
+      line-height: 3.5rem;
+    }
   }
 }
