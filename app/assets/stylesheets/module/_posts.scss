@@ -3,7 +3,6 @@
 }
 .posts {
   &-mypage {
-    @extend %posts;
     margin-top: $navbar-height + $mypage-header-height;
   }
   &-timeline {
