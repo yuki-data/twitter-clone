@@ -1,4 +1,5 @@
 class UserProfilesController < ApplicationController
+  before_action :authenticate_user!
   before_action :set_user_profile, only: [:edit, :update]
   def edit
   end
