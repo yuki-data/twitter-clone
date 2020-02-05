@@ -1,4 +1,7 @@
 .header {
+  &__navbar-space {
+    height: $navbar-height + $mypage-header-height;
+  }
   &__user-info {
     height: 5rem;
     background-color: #efeff5;

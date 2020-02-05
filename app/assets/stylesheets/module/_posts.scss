@@ -2,9 +2,6 @@
   padding-top: 1rem;
 }
 .posts {
-  &-mypage {
-    margin-top: $navbar-height + $mypage-header-height;
-  }
   &-timeline {
     @extend %posts;
     margin-top: $navbar-height;

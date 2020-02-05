@@ -1,7 +1,7 @@
 <%= render partial: "shared/mypage_menubar" %>
-
+<%= render partial: "shared/mypage/header_spacing" %>
+<%= render "shared/mypage/user_profile" %>
 <div class="posts posts-mypage">
-  <%= render "shared/mypage/user_profile" %>
   <%= render partial: "shared/card/post_card", collection: @posts, as: :post %>
 </div>
 <%= paginate(@posts) %>
