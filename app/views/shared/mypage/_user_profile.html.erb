@@ -5,6 +5,8 @@
     <% end %>
     <% if @user.user_profile.thumbnail.present? %>
       <%= image_tag @user.user_profile.thumbnail.to_s, class: "mypage-profile__thumbnail" %>
+    <% else %>
+      <%= image_tag "icons/user-account.jpeg", class: "mypage-profile__thumbnail" %>
     <% end %>
   </section>
   <section class="mypage-profile__section--text">

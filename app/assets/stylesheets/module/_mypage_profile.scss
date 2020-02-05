@@ -8,6 +8,7 @@
       @extend %section;
       height: 300px;
       position: relative;
+      background-color: #e0cece;
     }
     &--text {
       @extend %section;
@@ -29,5 +30,6 @@
     position: absolute;
     bottom: 0;
     left: 0;
+    background-color: white;
   }
 }
