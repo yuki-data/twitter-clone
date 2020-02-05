@@ -11,7 +11,7 @@
   </section>
   <section class="mypage-profile__section--text">
     <div class="mypage-profile__edit-btn">
-      <button type="button" class="btn btn-outline-primary">プロフィール編集</button>
+      <%= link_to "プロフィール編集", edit_user_profiles_path, class: "btn btn-outline-primary" %>
     </div>
     <div class="mypage-profile__profile">
       <% if @user.user_profile.profile.present? %>
