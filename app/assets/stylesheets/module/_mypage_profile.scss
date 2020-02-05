@@ -4,11 +4,21 @@
     margin: 0 auto;
     height: 100%;
     max-width: 32rem * 1.5;
+    position: relative;
   }
   &__bg-image {
     height: 100%;
     max-width: 100%;
     background-size: cover;
     background-position: center;
+  }
+  &__thumbnail {
+    background-color: white;
+    width: 160px;
+    height: 160px;
+    border-radius: 50%;
+    position: absolute;
+    bottom: 0;
+    left: 0;
   }
 }
