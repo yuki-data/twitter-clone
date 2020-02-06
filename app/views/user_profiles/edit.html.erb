@@ -1,6 +1,13 @@
 <%= render partial: "posts/navbar" %>
 <div class="post-form">
   <h4 class="text-center pt-3">プロフィール編集</h4>
+  <% unless @user_profile.errors.empty?  %>
+    <ul class="post-form__error-messages">
+      <% @user_profile.errors.full_messages.each do |message| %>
+        <%= content_tag(:li, message) %>
+      <% end %>
+    </ul>
+  <% end %>
   <%= form_with model: @user_profile, url: user_profiles_path, local: true, class: "post-form__form" do |form| %>
     <div class="post-form__form__menu">
       <%= form.submit "保存" , class: "post-form__form__menu__submit btn btn-primary" %>
@@ -10,9 +17,9 @@
       <%= form.text_area :profile, rows: 3, class: "form-control post-form__form__content__text", placeholder: "プロフィール" %>
       <section class="post-form__profile-image-section">
         <div class="post-form__thumbnail-container" id="thumbnail-container">
-          <%= icon("fas", "camera", class: "post-form__thumbnail-icon--upload", id: "thumbnail-upload-icon") %>
           <%= icon("far", "window-close", class: "post-form__thumbnail-icon--remove", id: "thumbnail-remove-icon") %>
           <%= form.label :thumbnail, class: "post-form__thumbnail-label" do %>
+            <%= icon("fas", "camera", class: "post-form__thumbnail-icon--upload", id: "thumbnail-upload-icon") %>
             <%= image_tag "icons/user-account.jpeg", class: "post-form__thumbnail-image--default", id: "thumbnail-default" %>
           <% end %>
           <% if @user_profile.thumbnail.present? %>

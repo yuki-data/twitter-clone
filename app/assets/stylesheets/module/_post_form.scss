@@ -12,6 +12,9 @@
     padding: 0.5rem 1rem 0;
     @extend %post-form;
   }
+  &__error-messages {
+    color: red;
+  }
   &__form {
     &__content {
       &__image {
@@ -78,6 +81,9 @@
     position: absolute;
     z-index: 2;
     top: 0;
+    &:hover {
+      cursor: pointer;
+    }
   }
   &__thumbnail-icon {
     &--upload {
@@ -118,7 +124,6 @@
   }
 
   &__bg-image {
-
     height: 200px;
     width: 100%;
     background-size: cover;
